@@ -10,6 +10,7 @@
 | main.py        |                                |
 | container.py   |                                |
 | dbfunctions.py |                                |
+| tables.sql     |                                |
 | .gitignore     |                                |
 <br>
 
@@ -22,4 +23,4 @@
 <br>
 <br>
 
-> ### **If you think education is expensive, try ignorance. - Derek Bok **
+> ### ** If you think education is expensive, try ignorance. - Derek Bok **
