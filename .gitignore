@@ -1,0 +1,4 @@
+/__pycache__/
+frames/__pycache__/
+*.bak
+test.py
