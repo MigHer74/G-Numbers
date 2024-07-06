@@ -163,3 +163,61 @@ class Gnumber(Tk):
         self.mainMenu.add_cascade(label="About", menu=self.optionAbout)
 
         self.config(menu=self.mainMenu)
+
+    def enableEntries(self):
+        self.shortEntry1.config(state="normal")
+        self.shortEntry2.config(state="normal")
+        self.shortEntry3.config(state="normal")
+        self.shortEntry4.config(state="normal")
+        self.shortEntry5.config(state="normal")
+        self.shortEntry6.config(state="normal")
+
+        self.longEntry11.config(state="normal")
+        self.longEntry12.config(state="normal")
+        self.longEntry13.config(state="normal")
+        self.longEntry14.config(state="normal")
+        self.longEntry15.config(state="normal")
+        self.longEntry16.config(state="normal")
+
+        self.longEntry21.config(state="normal")
+        self.longEntry22.config(state="normal")
+        self.longEntry23.config(state="normal")
+        self.longEntry24.config(state="normal")
+        self.longEntry25.config(state="normal")
+        self.longEntry26.config(state="normal")
+
+        self.longEntry31.config(state="normal")
+        self.longEntry32.config(state="normal")
+        self.longEntry33.config(state="normal")
+        self.longEntry34.config(state="normal")
+        self.longEntry35.config(state="normal")
+        self.longEntry36.config(state="normal")
+
+    def disableEntries(self):
+        self.shortEntry1.config(state="readonly")
+        self.shortEntry2.config(state="readonly")
+        self.shortEntry3.config(state="readonly")
+        self.shortEntry4.config(state="readonly")
+        self.shortEntry5.config(state="readonly")
+        self.shortEntry6.config(state="readonly")
+
+        self.longEntry11.config(state="readonly")
+        self.longEntry12.config(state="readonly")
+        self.longEntry13.config(state="readonly")
+        self.longEntry14.config(state="readonly")
+        self.longEntry15.config(state="readonly")
+        self.longEntry16.config(state="readonly")
+
+        self.longEntry21.config(state="readonly")
+        self.longEntry22.config(state="readonly")
+        self.longEntry23.config(state="readonly")
+        self.longEntry24.config(state="readonly")
+        self.longEntry25.config(state="readonly")
+        self.longEntry26.config(state="readonly")
+
+        self.longEntry31.config(state="readonly")
+        self.longEntry32.config(state="readonly")
+        self.longEntry33.config(state="readonly")
+        self.longEntry34.config(state="readonly")
+        self.longEntry35.config(state="readonly")
+        self.longEntry36.config(state="readonly")
