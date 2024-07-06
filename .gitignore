@@ -2,3 +2,5 @@
 frames/__pycache__/
 *.bak
 test.py
+*.db
+*.sql
