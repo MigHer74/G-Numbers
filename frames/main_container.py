@@ -1,4 +1,5 @@
 from tkinter import Tk, Menu, LabelFrame, Label, Entry
+import db_functions as dba
 
 
 class Gnumber(Tk):
@@ -6,6 +7,7 @@ class Gnumber(Tk):
         super().__init__()
         self.build()
         self.menu()
+        self.loadAllData()
 
     def build(self):
         self.title("G-Numbers - Main Menu")
@@ -163,6 +165,41 @@ class Gnumber(Tk):
         self.mainMenu.add_cascade(label="About", menu=self.optionAbout)
 
         self.config(menu=self.mainMenu)
+
+    def loadAllData(self):
+        dataShort, dataLong = dba.dbaShowLatest()
+
+        self.enableEntries()
+
+        self.shortEntry1.insert(0, dataShort[3])
+        self.shortEntry2.insert(0, dataShort[4])
+        self.shortEntry3.insert(0, dataShort[5])
+        self.shortEntry4.insert(0, dataShort[6])
+        self.shortEntry5.insert(0, dataShort[7])
+        self.shortEntry6.insert(0, dataShort[8])
+
+        self.longEntry11.insert(0, dataLong[0][3])
+        self.longEntry12.insert(0, dataLong[0][4])
+        self.longEntry13.insert(0, dataLong[0][5])
+        self.longEntry14.insert(0, dataLong[0][6])
+        self.longEntry15.insert(0, dataLong[0][7])
+        self.longEntry16.insert(0, dataLong[0][8])
+
+        self.longEntry21.insert(0, dataLong[1][3])
+        self.longEntry22.insert(0, dataLong[1][4])
+        self.longEntry23.insert(0, dataLong[1][5])
+        self.longEntry24.insert(0, dataLong[1][6])
+        self.longEntry25.insert(0, dataLong[1][7])
+        self.longEntry26.insert(0, dataLong[1][8])
+
+        self.longEntry31.insert(0, dataLong[2][3])
+        self.longEntry32.insert(0, dataLong[2][4])
+        self.longEntry33.insert(0, dataLong[2][5])
+        self.longEntry34.insert(0, dataLong[2][6])
+        self.longEntry35.insert(0, dataLong[2][7])
+        self.longEntry36.insert(0, dataLong[2][8])
+
+        self.disableEntries()
 
     def enableEntries(self):
         self.shortEntry1.config(state="normal")
