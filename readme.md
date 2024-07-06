@@ -14,7 +14,7 @@
 ## Project Folders
 | Folder | Description                                      |
 | ------ | ------------------------------------------------ |
-| dba    | Folder where the database is located.            |
+| db     | Folder where the database is located.            |
 | frames | Folder includes all the scripts of every window. |
 <br>
 
