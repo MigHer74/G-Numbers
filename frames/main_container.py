@@ -1,4 +1,5 @@
 from tkinter import Tk, Menu, LabelFrame, Label, Entry
+from frames import game_container as gc
 import db_functions as dba
 
 
@@ -10,7 +11,7 @@ class Gnumber(Tk):
         self.loadAllData()
 
     def build(self):
-        self.title("G-Numbers - Main Menu")
+        self.title("G-Numbers | Main Menu")
         self.geometry("600x400")
         self.resizable(False, False)
 
@@ -144,7 +145,8 @@ class Gnumber(Tk):
         self.optionGame = Menu(self.mainMenu, tearoff=0)
         self.mainMenu.add_cascade(label="Game", menu=self.optionGame)
 
-        self.optionGame.add_command(label="Play")
+        self.optionGame.add_command(label="Play",
+                                    command=lambda: gc.GPanel(self))
         self.optionGame.add_command(label="RePlay")
         self.optionGame.add_separator()
         self.optionGame.add_command(label="Exit", command=self.quit)
