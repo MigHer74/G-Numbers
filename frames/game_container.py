@@ -30,10 +30,10 @@ class GPanel(Toplevel):
                                     command=self.gameAction)
         self.shortSel.grid(row=0, column=0, padx=10, pady=(10, 10))
 
-        self.shortLong = Radiobutton(self.selectGame, text="Long Game",
-                                     value="long", variable=self.gameType,
-                                     command=self.gameAction)
-        self.shortLong.grid(row=1, column=0, padx=10, pady=(0, 10))
+        self.longSel = Radiobutton(self.selectGame, text="Long Game",
+                                   value="long", variable=self.gameType,
+                                   command=self.gameAction)
+        self.longSel.grid(row=1, column=0, padx=10, pady=(0, 10))
 
         self.buttonGame = Frame(self.panelOne)
         self.buttonGame.grid(row=1, column=0, pady=(20, 15))
@@ -43,7 +43,7 @@ class GPanel(Toplevel):
         self.buttonPlay.grid(row=0, column=0)
 
         self.buttonReset = Button(self.buttonGame, width=15, text="Reset Game",
-                                  state="disabled")
+                                  state="disabled", command=self.gameReset)
         self.buttonReset.grid(row=1, column=0, pady=(15, 0))
 
         self.buttonClose = Button(self.buttonGame, width=15, text="Close",
@@ -168,4 +168,110 @@ class GPanel(Toplevel):
         self.longEntry36.grid(row=2, column=6, padx=(10, 15), pady=10)
 
     def gameAction(self):
-        pass
+        self.shortSel.config(state="disabled")
+        self.longSel.config(state="disabled")
+        self.buttonPlay.config(state="active")
+        self.buttonReset.config(state="active")
+
+        self.enableEntries()
+
+    def gameReset(self):
+        self.cleanEntries()
+        self.disableEntries()
+
+        self.gameType.set(None)
+
+        self.shortSel.config(state="normal")
+        self.longSel.config(state="normal")
+        self.buttonPlay.config(state="disabled")
+        self.buttonReset.config(state="disabled")
+
+    def enableEntries(self):
+        if self.gameType.get() == "short":
+            self.shortEntry01.config(state="normal")
+            self.shortEntry02.config(state="normal")
+            self.shortEntry03.config(state="normal")
+            self.shortEntry04.config(state="normal")
+            self.shortEntry05.config(state="normal")
+            self.shortEntry06.config(state="normal")
+        else:
+            self.longEntry11.config(state="normal")
+            self.longEntry12.config(state="normal")
+            self.longEntry13.config(state="normal")
+            self.longEntry14.config(state="normal")
+            self.longEntry15.config(state="normal")
+            self.longEntry16.config(state="normal")
+
+            self.longEntry21.config(state="normal")
+            self.longEntry22.config(state="normal")
+            self.longEntry23.config(state="normal")
+            self.longEntry24.config(state="normal")
+            self.longEntry25.config(state="normal")
+            self.longEntry26.config(state="normal")
+
+            self.longEntry31.config(state="normal")
+            self.longEntry32.config(state="normal")
+            self.longEntry33.config(state="normal")
+            self.longEntry34.config(state="normal")
+            self.longEntry35.config(state="normal")
+            self.longEntry36.config(state="normal")
+
+    def disableEntries(self):
+        if self.gameType.get() == "short":
+            self.shortEntry01.config(state="readonly")
+            self.shortEntry02.config(state="readonly")
+            self.shortEntry03.config(state="readonly")
+            self.shortEntry04.config(state="readonly")
+            self.shortEntry05.config(state="readonly")
+            self.shortEntry06.config(state="readonly")
+        else:
+            self.longEntry11.config(state="readonly")
+            self.longEntry12.config(state="readonly")
+            self.longEntry13.config(state="readonly")
+            self.longEntry14.config(state="readonly")
+            self.longEntry15.config(state="readonly")
+            self.longEntry16.config(state="readonly")
+
+            self.longEntry21.config(state="readonly")
+            self.longEntry22.config(state="readonly")
+            self.longEntry23.config(state="readonly")
+            self.longEntry24.config(state="readonly")
+            self.longEntry25.config(state="readonly")
+            self.longEntry26.config(state="readonly")
+
+            self.longEntry31.config(state="readonly")
+            self.longEntry32.config(state="readonly")
+            self.longEntry33.config(state="readonly")
+            self.longEntry34.config(state="readonly")
+            self.longEntry35.config(state="readonly")
+            self.longEntry36.config(state="readonly")
+
+    def cleanEntries(self):
+        if self.gameType.get() == "short":
+            self.shortEntry01.delete(0, "end")
+            self.shortEntry02.delete(0, "end")
+            self.shortEntry03.delete(0, "end")
+            self.shortEntry04.delete(0, "end")
+            self.shortEntry05.delete(0, "end")
+            self.shortEntry06.delete(0, "end")
+        else:
+            self.longEntry11.delete(0, "end")
+            self.longEntry12.delete(0, "end")
+            self.longEntry13.delete(0, "end")
+            self.longEntry14.delete(0, "end")
+            self.longEntry15.delete(0, "end")
+            self.longEntry16.delete(0, "end")
+
+            self.longEntry21.delete(0, "end")
+            self.longEntry22.delete(0, "end")
+            self.longEntry23.delete(0, "end")
+            self.longEntry24.delete(0, "end")
+            self.longEntry25.delete(0, "end")
+            self.longEntry26.delete(0, "end")
+
+            self.longEntry31.delete(0, "end")
+            self.longEntry32.delete(0, "end")
+            self.longEntry33.delete(0, "end")
+            self.longEntry34.delete(0, "end")
+            self.longEntry35.delete(0, "end")
+            self.longEntry36.delete(0, "end")
