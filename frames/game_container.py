@@ -5,10 +5,13 @@ from tkinter import IntVar
 class GPanel(Toplevel):
     def __init__(self, parent):
         super().__init__()
+        self.transient(parent)
+        self.grab_set()
 
         self.gameType = IntVar()
 
         self.build()
+        self.focus()
 
     def build(self):
         self.title("G-Numbers | Game Panel")
