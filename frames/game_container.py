@@ -1,5 +1,5 @@
 from tkinter import Toplevel, Frame, LabelFrame, Label, Entry, Button
-from tkinter import Radiobutton, IntVar
+from tkinter import Radiobutton, StringVar
 
 
 class GPanel(Toplevel):
@@ -8,7 +8,8 @@ class GPanel(Toplevel):
         self.transient(parent)
         self.grab_set()
 
-        self.gameType = IntVar()
+        self.gameType = StringVar()
+        self.gameType.set(None)
 
         self.build()
         self.focus()
@@ -25,11 +26,13 @@ class GPanel(Toplevel):
         self.selectGame.grid(row=0, column=0)
 
         self.shortSel = Radiobutton(self.selectGame, text="Short Game",
-                                    value=1, variable=self.gameType)
+                                    value="short", variable=self.gameType,
+                                    command=self.gameAction)
         self.shortSel.grid(row=0, column=0, padx=10, pady=(10, 10))
 
         self.shortLong = Radiobutton(self.selectGame, text="Long Game",
-                                     value=2, variable=self.gameType)
+                                     value="long", variable=self.gameType,
+                                     command=self.gameAction)
         self.shortLong.grid(row=1, column=0, padx=10, pady=(0, 10))
 
         self.buttonGame = Frame(self.panelOne)
@@ -163,3 +166,6 @@ class GPanel(Toplevel):
         self.longEntry36 = Entry(self.longPanel, width=4, justify="center",
                                  state="readonly")
         self.longEntry36.grid(row=2, column=6, padx=(10, 15), pady=10)
+
+    def gameAction(self):
+        pass
