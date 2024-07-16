@@ -1,5 +1,5 @@
-from tkinter import Toplevel, LabelFrame, Label, Entry, Radiobutton
-from tkinter import IntVar
+from tkinter import Toplevel, Frame, LabelFrame, Label, Entry, Button
+from tkinter import Radiobutton, IntVar
 
 
 class GPanel(Toplevel):
@@ -17,9 +17,12 @@ class GPanel(Toplevel):
         self.title("G-Numbers | Game Panel")
         self.resizable(False, False)
 
-        self.selectGame = LabelFrame(self, text=" Select Game ")
-        self.selectGame.grid(row=0, column=0, rowspan=2,
-                             padx=(15, 0), pady=(15, 0), sticky="n")
+        self.panelOne = Frame(self)
+        self.panelOne.grid(row=0, column=0, rowspan=2, padx=(15, 10),
+                           pady=(15, 15), sticky="n")
+
+        self.selectGame = LabelFrame(self.panelOne, text=" Select Game ")
+        self.selectGame.grid(row=0, column=0)
 
         self.shortSel = Radiobutton(self.selectGame, text="Short Game",
                                     value=1, variable=self.gameType)
@@ -28,6 +31,21 @@ class GPanel(Toplevel):
         self.shortLong = Radiobutton(self.selectGame, text="Long Game",
                                      value=2, variable=self.gameType)
         self.shortLong.grid(row=1, column=0, padx=10, pady=(0, 10))
+
+        self.buttonGame = Frame(self.panelOne)
+        self.buttonGame.grid(row=1, column=0, pady=(20, 15))
+
+        self.buttonPlay = Button(self.buttonGame, width=15, text="Play Game",
+                                 state="disabled")
+        self.buttonPlay.grid(row=0, column=0)
+
+        self.buttonReset = Button(self.buttonGame, width=15, text="Reset Game",
+                                  state="disabled")
+        self.buttonReset.grid(row=1, column=0, pady=(15, 0))
+
+        self.buttonClose = Button(self.buttonGame, width=15, text="Close",
+                                  command=self.destroy)
+        self.buttonClose.grid(row=2, column=0, pady=(15, 0))
 
         self.shortPanel = LabelFrame(self, text=" Short Game Numbers ",
                                      labelanchor="n")
