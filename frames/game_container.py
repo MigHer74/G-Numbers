@@ -168,6 +168,50 @@ class GPanel(Toplevel):
                                  state="readonly")
         self.longEntry36.grid(row=2, column=6, padx=(10, 15), pady=10)
 
+    def buildResults(self):
+        self.panelTwo = Frame(self)
+        self.panelTwo.grid(row=2, column=1)
+
+        self.panelResults = LabelFrame(self.panelTwo, width=310, height=150,
+                                       text=" Numbers Repetition ",
+                                       labelanchor="n")
+        self.panelResults.grid(row=0, column=0, pady=15)
+        self.panelResults.grid_propagate(False)
+
+        if self.gameType.get() == "short":
+            result1 = "5+ ->"
+            result2 = "4 -->"
+            result3 = "3 -->"
+            result4 = "2 -->"
+        else:
+            result1 = "6+ ->"
+            result2 = "5 -->"
+            result3 = "4 -->"
+            result4 = "3 -->"
+
+        self.labelRow01 = Label(self.panelResults, text=result1)
+        self.labelRow01.grid(row=0, column=0, padx=10, pady=(5, 0),
+                             sticky="w")
+
+        self.labelRow02 = Label(self.panelResults, text=result2)
+        self.labelRow02.grid(row=1, column=0, padx=10, pady=(10, 0),
+                             sticky="w")
+
+        self.labelRow03 = Label(self.panelResults, text=result3)
+        self.labelRow03.grid(row=2, column=0, padx=10, pady=(10, 0),
+                             sticky="w")
+
+        self.labelRow04 = Label(self.panelResults, text=result4)
+        self.labelRow04.grid(row=3, column=0, padx=10, pady=(10, 10),
+                             sticky="w")
+
+        self.panelButton = Frame(self.panelTwo)
+        self.panelButton.grid(row=1, column=0, pady=15)
+
+        self.buttonNew = Button(self.panelButton, width=15, text="New Game",
+                                command=self.gameNew)
+        self.buttonNew.pack()
+
     def gameAction(self):
         self.shortSel.config(state="disabled")
         self.longSel.config(state="disabled")
@@ -233,6 +277,11 @@ class GPanel(Toplevel):
             dba.dbaInsertValues(data1)
             dba.dbaInsertValues(data2)
             dba.dbaInsertValues(data3)
+
+        self.buildResults()
+
+    def gameNew(self):
+        self.panelTwo.destroy()
 
     def enableEntries(self):
         if self.gameType.get() == "short":
