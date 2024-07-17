@@ -192,39 +192,41 @@ class GPanel(Toplevel):
 
         if self.gameType.get() == "short":
             data = ("S", "W1", 1,
-                    self.shortEntry01.get(),
-                    self.shortEntry02.get(),
-                    self.shortEntry03.get(),
-                    self.shortEntry04.get(),
-                    self.shortEntry05.get(),
-                    self.shortEntry06.get())
+                    int(self.shortEntry01.get()),
+                    int(self.shortEntry02.get()),
+                    int(self.shortEntry03.get()),
+                    int(self.shortEntry04.get()),
+                    int(self.shortEntry05.get()),
+                    int(self.shortEntry06.get()))
 
+            self.disableEntries()
             dba.dbaInsertValues(data)
         else:
             data1 = ("L", "W1", 1,
-                     self.longEntry11.get(),
-                     self.longEntry12.get(),
-                     self.longEntry13.get(),
-                     self.longEntry14.get(),
-                     self.longEntry15.get(),
-                     self.longEntry16.get())
+                     int(self.longEntry11.get()),
+                     int(self.longEntry12.get()),
+                     int(self.longEntry13.get()),
+                     int(self.longEntry14.get()),
+                     int(self.longEntry15.get()),
+                     int(self.longEntry16.get()))
 
             data2 = ("L", "W1", 2,
-                     self.longEntry21.get(),
-                     self.longEntry22.get(),
-                     self.longEntry23.get(),
-                     self.longEntry24.get(),
-                     self.longEntry25.get(),
-                     self.longEntry26.get())
+                     int(self.longEntry21.get()),
+                     int(self.longEntry22.get()),
+                     int(self.longEntry23.get()),
+                     int(self.longEntry24.get()),
+                     int(self.longEntry25.get()),
+                     int(self.longEntry26.get()))
 
             data3 = ("L", "W1", 3,
-                     self.longEntry31.get(),
-                     self.longEntry32.get(),
-                     self.longEntry33.get(),
-                     self.longEntry34.get(),
-                     self.longEntry35.get(),
-                     self.longEntry36.get())
+                     int(self.longEntry31.get()),
+                     int(self.longEntry32.get()),
+                     int(self.longEntry33.get()),
+                     int(self.longEntry34.get()),
+                     int(self.longEntry35.get()),
+                     int(self.longEntry36.get()))
 
+            self.disableEntries()
             dba.dbaInsertValues(data1)
             dba.dbaInsertValues(data2)
             dba.dbaInsertValues(data3)
@@ -237,6 +239,8 @@ class GPanel(Toplevel):
             self.shortEntry04.config(state="normal")
             self.shortEntry05.config(state="normal")
             self.shortEntry06.config(state="normal")
+
+            self.shortEntry01.focus()
         else:
             self.longEntry11.config(state="normal")
             self.longEntry12.config(state="normal")
@@ -258,6 +262,8 @@ class GPanel(Toplevel):
             self.longEntry34.config(state="normal")
             self.longEntry35.config(state="normal")
             self.longEntry36.config(state="normal")
+
+            self.longEntry11.focus()
 
     def disableEntries(self):
         if self.gameType.get() == "short":
