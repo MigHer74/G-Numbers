@@ -188,6 +188,9 @@ class GPanel(Toplevel):
         self.buttonReset.config(state="disabled")
 
     def gameplay(self):
+        self.buttonPlay.config(state="disabled")
+        self.buttonReset.config(state="disabled")
+
         dba.dbaUpdateGame(self.gameType.get())
 
         if self.gameType.get() == "short":
