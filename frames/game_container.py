@@ -1,5 +1,6 @@
 from tkinter import Toplevel, Frame, LabelFrame, Label, Entry, Button
 from tkinter import Radiobutton, StringVar
+import db_functions as dba
 
 
 class GPanel(Toplevel):
@@ -39,7 +40,7 @@ class GPanel(Toplevel):
         self.buttonGame.grid(row=1, column=0, pady=(20, 15))
 
         self.buttonPlay = Button(self.buttonGame, width=15, text="Play Game",
-                                 state="disabled")
+                                 state="disabled", command=self.gameplay)
         self.buttonPlay.grid(row=0, column=0)
 
         self.buttonReset = Button(self.buttonGame, width=15, text="Reset Game",
@@ -185,6 +186,48 @@ class GPanel(Toplevel):
         self.longSel.config(state="normal")
         self.buttonPlay.config(state="disabled")
         self.buttonReset.config(state="disabled")
+
+    def gameplay(self):
+        dba.dbaUpdateGame(self.gameType.get())
+
+        if self.gameType.get() == "short":
+            data = ("S", "W1", 1,
+                    self.shortEntry01.get(),
+                    self.shortEntry02.get(),
+                    self.shortEntry03.get(),
+                    self.shortEntry04.get(),
+                    self.shortEntry05.get(),
+                    self.shortEntry06.get())
+
+            dba.dbaInsertValues(data)
+        else:
+            data1 = ("L", "W1", 1,
+                     self.longEntry11.get(),
+                     self.longEntry12.get(),
+                     self.longEntry13.get(),
+                     self.longEntry14.get(),
+                     self.longEntry15.get(),
+                     self.longEntry16.get())
+
+            data2 = ("L", "W1", 2,
+                     self.longEntry21.get(),
+                     self.longEntry22.get(),
+                     self.longEntry23.get(),
+                     self.longEntry24.get(),
+                     self.longEntry25.get(),
+                     self.longEntry26.get())
+
+            data3 = ("L", "W1", 3,
+                     self.longEntry31.get(),
+                     self.longEntry32.get(),
+                     self.longEntry33.get(),
+                     self.longEntry34.get(),
+                     self.longEntry35.get(),
+                     self.longEntry36.get())
+
+            dba.dbaInsertValues(data1)
+            dba.dbaInsertValues(data2)
+            dba.dbaInsertValues(data3)
 
     def enableEntries(self):
         if self.gameType.get() == "short":
