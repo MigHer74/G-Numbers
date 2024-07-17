@@ -40,3 +40,11 @@ def dbaUpdateGame(dbtype):
 
     dbcon.commit()
     dbcon.close()
+
+
+def dbaInsertValues(dbdata):
+    dbcon = dbaConnection()
+    dbcur = dbcon.cursor()
+    dbcur.execute("INSERT INTO games VALUES(?,?,?,?,?,?,?,?,?)", (dbdata))
+    dbcon.commit()
+    dbcon.close()
