@@ -287,6 +287,8 @@ class GPanel(Toplevel):
 
     def gameNew(self):
         self.panelThree.destroy()
+        self.enableEntries()
+        self.gameReset()
 
     def enableEntries(self):
         if self.gameType.get() == "short":
