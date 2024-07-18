@@ -48,3 +48,19 @@ def dbaInsertValues(dbdata):
     dbcur.execute("INSERT INTO games VALUES(?,?,?,?,?,?,?,?,?)", (dbdata))
     dbcon.commit()
     dbcon.close()
+
+
+def dbaRetriveValues(dbtype):
+    if dbtype == "short":
+        dbtype = "S"
+    else:
+        dbtype = "L"
+
+    sqlrow = f"SELECT * FROM games WHERE gType = '{dbtype}'"
+
+    dbcon = dbaConnection()
+    dbcur = dbcon.cursor()
+    dbdata = dbcur.execute(sqlrow).fetchall()
+    dbcon.close()
+
+    return dbdata
