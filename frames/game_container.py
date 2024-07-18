@@ -20,10 +20,10 @@ class GPanel(Toplevel):
         self.resizable(False, False)
 
         self.panelOne = Frame(self)
-        self.panelOne.grid(row=0, column=0, rowspan=2, padx=(15, 10),
-                           pady=(15, 15), sticky="n")
+        self.panelOne.grid(row=0, column=0, padx=(15, 10), pady=(15, 0))
 
-        self.selectGame = LabelFrame(self.panelOne, text=" Select Game ")
+        self.selectGame = LabelFrame(self.panelOne, text=" Select Game ",
+                                     labelanchor="n")
         self.selectGame.grid(row=0, column=0)
 
         self.shortSel = Radiobutton(self.selectGame, text="Short Game",
@@ -51,10 +51,14 @@ class GPanel(Toplevel):
                                   command=self.destroy)
         self.buttonClose.grid(row=2, column=0, pady=(15, 0))
 
-        self.shortPanel = LabelFrame(self, text=" Short Game Numbers ",
+        self.panelTwo = Frame(self)
+        self.panelTwo.grid(row=0, column=1, padx=(15, 15), pady=(15, 0),
+                           sticky="n")
+
+        self.shortPanel = LabelFrame(self.panelTwo,
+                                     text=" Short Game Numbers ",
                                      labelanchor="n")
-        self.shortPanel.grid(row=0, column=1, padx=(15, 15), pady=(15, 0),
-                             sticky="n")
+        self.shortPanel.grid(row=0, column=1)
 
         self.shortLabel = Label(self.shortPanel, text="Game #1")
         self.shortLabel.grid(row=0, column=0, padx=(10, 0), pady=10)
@@ -83,9 +87,9 @@ class GPanel(Toplevel):
                                   state="readonly")
         self.shortEntry06.grid(row=0, column=6, padx=(10, 15), pady=10)
 
-        self.longPanel = LabelFrame(self, text=" Long Game Numbers ",
+        self.longPanel = LabelFrame(self.panelTwo, text=" Long Game Numbers ",
                                     labelanchor="n")
-        self.longPanel.grid(row=1, column=1, padx=(15, 15), pady=(15, 15))
+        self.longPanel.grid(row=1, column=1, pady=(25, 0))
 
         self.longLabel1 = Label(self.longPanel, text="Game #1")
         self.longLabel1.grid(row=0, column=0, padx=(10, 0), pady=10)
@@ -169,13 +173,21 @@ class GPanel(Toplevel):
         self.longEntry36.grid(row=2, column=6, padx=(10, 15), pady=10)
 
     def buildResults(self):
-        self.panelTwo = Frame(self)
-        self.panelTwo.grid(row=2, column=1)
+        self.panelThree = Frame(self)
+        self.panelThree.grid(row=1, column=0, columnspan=2, padx=15,
+                             pady=(10, 15), sticky="we")
 
-        self.panelResults = LabelFrame(self.panelTwo, width=310, height=150,
+        self.panelButton = Frame(self.panelThree)
+        self.panelButton.grid(row=0, column=0)
+
+        self.buttonNew = Button(self.panelButton, width=15, text="New Game",
+                                command=self.gameNew)
+        self.buttonNew.pack()
+
+        self.panelResults = LabelFrame(self.panelThree, width=310, height=150,
                                        text=" Numbers Repetition ",
                                        labelanchor="n")
-        self.panelResults.grid(row=0, column=0, pady=15)
+        self.panelResults.grid(row=0, column=1, padx=(25, 0))
         self.panelResults.grid_propagate(False)
 
         if self.gameType.get() == "short":
@@ -204,13 +216,6 @@ class GPanel(Toplevel):
         self.labelRow04 = Label(self.panelResults, text=result4)
         self.labelRow04.grid(row=3, column=0, padx=10, pady=(10, 10),
                              sticky="w")
-
-        self.panelButton = Frame(self.panelTwo)
-        self.panelButton.grid(row=1, column=0, pady=15)
-
-        self.buttonNew = Button(self.panelButton, width=15, text="New Game",
-                                command=self.gameNew)
-        self.buttonNew.pack()
 
     def gameAction(self):
         self.shortSel.config(state="disabled")
@@ -281,7 +286,7 @@ class GPanel(Toplevel):
         self.buildResults()
 
     def gameNew(self):
-        self.panelTwo.destroy()
+        self.panelThree.destroy()
 
     def enableEntries(self):
         if self.gameType.get() == "short":
