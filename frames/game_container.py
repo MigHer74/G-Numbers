@@ -177,6 +177,17 @@ class GPanel(Toplevel):
         (listResult1, listResult2,
          listResult3, listResult4) = gen.gEngine(self.gameType.get())
 
+        if self.gameType.get() == "short":
+            result1 = f"5+ -> {", ".join(listResult1)}"
+            result2 = f"4 --> {", ".join(listResult2)}"
+            result3 = f"3 --> {", ".join(listResult3)}"
+            result4 = f"2 --> {", ".join(listResult4)}"
+        else:
+            result1 = f"6+ -> {", ".join(listResult1)}"
+            result2 = f"5 --> {", ".join(listResult2)}"
+            result3 = f"4 --> {", ".join(listResult3)}"
+            result4 = f"3 --> {", ".join(listResult4)}"
+
         self.panelThree = Frame(self)
         self.panelThree.grid(row=1, column=0, columnspan=2, padx=15,
                              pady=(10, 15), sticky="we")
@@ -193,17 +204,6 @@ class GPanel(Toplevel):
                                        labelanchor="n")
         self.panelResults.grid(row=0, column=1, padx=(25, 0))
         self.panelResults.grid_propagate(False)
-
-        if self.gameType.get() == "short":
-            result1 = f"5+ -> {", ".join(listResult1)}"
-            result2 = f"4 --> {", ".join(listResult2)}"
-            result3 = f"3 --> {", ".join(listResult3)}"
-            result4 = f"2 --> {", ".join(listResult4)}"
-        else:
-            result1 = f"6+ -> {", ".join(listResult1)}"
-            result2 = f"5 --> {", ".join(listResult2)}"
-            result3 = f"4 --> {", ".join(listResult3)}"
-            result4 = f"3 --> {", ".join(listResult4)}"
 
         self.labelRow01 = Label(self.panelResults, text=result1)
         self.labelRow01.grid(row=0, column=0, padx=10, pady=(5, 0),
