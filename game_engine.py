@@ -17,20 +17,18 @@ def gEngine(gameType):
 
     allValues.sort()
 
-    print(allValues)
-
     if gameType == "short":
         for number in range(1, 40):
             choice = allValues.count(number)
 
             if choice >= 5:
-                rowResult1.append(number)
+                rowResult1.append(str(number))
             elif choice == 4:
-                rowResult2.append(number)
+                rowResult2.append(str(number))
             elif choice == 3:
-                rowResult3.append(number)
+                rowResult3.append(str(number))
             elif choice == 2:
-                rowResult4.append(number)
+                rowResult4.append(str(number))
 
             choice = 0
     else:
@@ -38,13 +36,13 @@ def gEngine(gameType):
             choice = allValues.count(number)
 
             if choice >= 6:
-                rowResult1.append(number)
+                rowResult1.append(str(number))
             elif choice == 5:
-                rowResult2.append(number)
+                rowResult2.append(str(number))
             elif choice == 4:
-                rowResult3.append(number)
+                rowResult3.append(str(number))
             elif choice == 3:
-                rowResult4.append(number)
+                rowResult4.append(str(number))
 
             choice = 0
 
