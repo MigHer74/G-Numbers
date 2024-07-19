@@ -1,6 +1,7 @@
 from tkinter import Toplevel, Frame, LabelFrame, Label, Entry, Button
 from tkinter import Radiobutton, StringVar
 import db_functions as dba
+import game_engine as gen
 
 
 class GPanel(Toplevel):
@@ -173,6 +174,9 @@ class GPanel(Toplevel):
         self.longEntry36.grid(row=2, column=6, padx=(10, 15), pady=10)
 
     def buildResults(self):
+        (listResult1, listResult2,
+         listResult3, listResult4) = gen.gEngine(self.gameType.get())
+
         self.panelThree = Frame(self)
         self.panelThree.grid(row=1, column=0, columnspan=2, padx=15,
                              pady=(10, 15), sticky="we")
@@ -191,15 +195,15 @@ class GPanel(Toplevel):
         self.panelResults.grid_propagate(False)
 
         if self.gameType.get() == "short":
-            result1 = "5+ ->"
-            result2 = "4 -->"
-            result3 = "3 -->"
-            result4 = "2 -->"
+            result1 = f"5+ -> {", ".join(listResult1)}"
+            result2 = f"4 --> {", ".join(listResult2)}"
+            result3 = f"3 --> {", ".join(listResult3)}"
+            result4 = f"2 --> {", ".join(listResult4)}"
         else:
-            result1 = "6+ ->"
-            result2 = "5 -->"
-            result3 = "4 -->"
-            result4 = "3 -->"
+            result1 = f"6+ -> {", ".join(listResult1)}"
+            result2 = f"5 --> {", ".join(listResult2)}"
+            result3 = f"4 --> {", ".join(listResult3)}"
+            result4 = f"3 --> {", ".join(listResult4)}"
 
         self.labelRow01 = Label(self.panelResults, text=result1)
         self.labelRow01.grid(row=0, column=0, padx=10, pady=(5, 0),
