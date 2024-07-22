@@ -1,5 +1,6 @@
 from tkinter import Tk, Menu, LabelFrame, Label, Entry
 from frames import game_container as gc
+from frames import regame_container as rgc
 import db_functions as dba
 
 
@@ -147,7 +148,8 @@ class Gnumber(Tk):
 
         self.optionGame.add_command(label="Play",
                                     command=lambda: gc.GPanel(self))
-        self.optionGame.add_command(label="RePlay")
+        self.optionGame.add_command(label="RePlay",
+                                    command=lambda: rgc.RGPanel(self))
         self.optionGame.add_separator()
         self.optionGame.add_command(label="Exit", command=self.quit)
 
