@@ -47,3 +47,12 @@ class RGPanel(Toplevel):
         self.closeButton = Button(self.panelTwo, width=15, text="Close",
                                   command=self.destroy)
         self.closeButton.grid(row=2, column=0, pady=(10, 10))
+
+        self.panelThree = Frame(self)
+        self.panelThree.grid(row=0, column=1)
+
+        self.panelResults = LabelFrame(self.panelThree, width=310, height=150,
+                                       text=" Numbers Repetition ",
+                                       labelanchor="n")
+        self.panelResults.grid(row=0, column=0, padx=(15, 15), pady=(15, 0))
+        self.panelResults.grid_propagate(False)
