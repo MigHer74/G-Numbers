@@ -40,7 +40,7 @@ class RGPanel(Toplevel):
         self.panelTwo.grid(row=1, column=0, columnspan=2, pady=(15, 15))
 
         self.newButton = Button(self.panelTwo, width=15, text="New",
-                                state="disabled")
+                                state="disabled", command=self.newGame)
         self.newButton.grid(row=0, column=0, padx=(0, 15), pady=(10, 0))
 
         self.closeButton = Button(self.panelTwo, width=15, text="Close",
@@ -90,3 +90,15 @@ class RGPanel(Toplevel):
         self.labelRow04 = Label(self.panelResults, text=result4)
         self.labelRow04.grid(row=3, column=0, padx=10, pady=(10, 10),
                              sticky="w")
+
+    def newGame(self):
+        self.replayType.set(None)
+
+        self.replayShort.config(state="normal")
+        self.replayLong.config(state="normal")
+        self.newButton.config(state="disabled")
+
+        self.labelRow01.destroy()
+        self.labelRow02.destroy()
+        self.labelRow03.destroy()
+        self.labelRow04.destroy()
