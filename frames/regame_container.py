@@ -13,6 +13,7 @@ class RGPanel(Toplevel):
         self.replayType.set(None)
 
         self.build()
+        self.centerFrame()
         self.focus()
 
     def build(self):
@@ -102,3 +103,13 @@ class RGPanel(Toplevel):
         self.labelRow02.destroy()
         self.labelRow03.destroy()
         self.labelRow04.destroy()
+
+    def centerFrame(self):
+        self.update()
+        w = self.winfo_width()
+        h = self.winfo_height()
+        ws = self.winfo_screenwidth()
+        hs = self.winfo_screenheight()
+        x = int(ws/2 - w/2)
+        y = int(hs/2 - h/2)
+        self.geometry(f"{w}x{h}+{x}+{y}")

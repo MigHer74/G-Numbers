@@ -9,6 +9,7 @@ class Gnumber(Tk):
         super().__init__()
         self.build()
         self.menu()
+        self.centerFrame()
         self.loadAllData()
 
     def build(self):
@@ -262,3 +263,13 @@ class Gnumber(Tk):
         self.longEntry34.config(state="readonly")
         self.longEntry35.config(state="readonly")
         self.longEntry36.config(state="readonly")
+
+    def centerFrame(self):
+        self.update()
+        w = self.winfo_width()
+        h = self.winfo_height()
+        ws = self.winfo_screenwidth()
+        hs = self.winfo_screenheight()
+        x = int(ws/2 - w/2)
+        y = int(hs/2 - h/2)
+        self.geometry(f"{w}x{h}+{x}+{y}")

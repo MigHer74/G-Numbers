@@ -14,6 +14,7 @@ class GPanel(Toplevel):
         self.gameType.set(None)
 
         self.build()
+        self.centerFrame()
         self.focus()
 
     def build(self):
@@ -511,3 +512,13 @@ class GPanel(Toplevel):
         self.master.longEntry34.delete(0, "end")
         self.master.longEntry35.delete(0, "end")
         self.master.longEntry36.delete(0, "end")
+
+    def centerFrame(self):
+        self.update()
+        w = self.winfo_width()
+        h = self.winfo_height()
+        ws = self.winfo_screenwidth()
+        hs = self.winfo_screenheight()
+        x = int(ws/2 - w/2)
+        y = int(hs/2 - h/2)
+        self.geometry(f"{w}x{h}+{x}+{y}")
