@@ -288,6 +288,7 @@ class GPanel(Toplevel):
             dba.dbaInsertValues(data3)
 
         self.buildResults()
+        self.updateMaster()
 
     def gameNew(self):
         self.panelThree.destroy()
@@ -387,3 +388,126 @@ class GPanel(Toplevel):
             self.longEntry34.delete(0, "end")
             self.longEntry35.delete(0, "end")
             self.longEntry36.delete(0, "end")
+
+    def updateMaster(self):
+        dataShort, dataLong = dba.dbaShowLatest()
+
+        self.enableMasterEntries()
+        self.cleanMasterEntries()
+
+        self.master.shortEntry1.insert(0, dataShort[3])
+        self.master.shortEntry2.insert(0, dataShort[4])
+        self.master.shortEntry3.insert(0, dataShort[5])
+        self.master.shortEntry4.insert(0, dataShort[6])
+        self.master.shortEntry5.insert(0, dataShort[7])
+        self.master.shortEntry6.insert(0, dataShort[8])
+
+        self.master.longEntry11.insert(0, dataLong[0][3])
+        self.master.longEntry12.insert(0, dataLong[0][4])
+        self.master.longEntry13.insert(0, dataLong[0][5])
+        self.master.longEntry14.insert(0, dataLong[0][6])
+        self.master.longEntry15.insert(0, dataLong[0][7])
+        self.master.longEntry16.insert(0, dataLong[0][8])
+
+        self.master.longEntry21.insert(0, dataLong[1][3])
+        self.master.longEntry22.insert(0, dataLong[1][4])
+        self.master.longEntry23.insert(0, dataLong[1][5])
+        self.master.longEntry24.insert(0, dataLong[1][6])
+        self.master.longEntry25.insert(0, dataLong[1][7])
+        self.master.longEntry26.insert(0, dataLong[1][8])
+
+        self.master.longEntry31.insert(0, dataLong[2][3])
+        self.master.longEntry32.insert(0, dataLong[2][4])
+        self.master.longEntry33.insert(0, dataLong[2][5])
+        self.master.longEntry34.insert(0, dataLong[2][6])
+        self.master.longEntry35.insert(0, dataLong[2][7])
+        self.master.longEntry36.insert(0, dataLong[2][8])
+
+        self.disableMasterEntries()
+
+    def enableMasterEntries(self):
+        self.master.shortEntry1.config(state="normal")
+        self.master.shortEntry2.config(state="normal")
+        self.master.shortEntry3.config(state="normal")
+        self.master.shortEntry4.config(state="normal")
+        self.master.shortEntry5.config(state="normal")
+        self.master.shortEntry6.config(state="normal")
+
+        self.master.longEntry11.config(state="normal")
+        self.master.longEntry12.config(state="normal")
+        self.master.longEntry13.config(state="normal")
+        self.master.longEntry14.config(state="normal")
+        self.master.longEntry15.config(state="normal")
+        self.master.longEntry16.config(state="normal")
+
+        self.master.longEntry21.config(state="normal")
+        self.master.longEntry22.config(state="normal")
+        self.master.longEntry23.config(state="normal")
+        self.master.longEntry24.config(state="normal")
+        self.master.longEntry25.config(state="normal")
+        self.master.longEntry26.config(state="normal")
+
+        self.master.longEntry31.config(state="normal")
+        self.master.longEntry32.config(state="normal")
+        self.master.longEntry33.config(state="normal")
+        self.master.longEntry34.config(state="normal")
+        self.master.longEntry35.config(state="normal")
+        self.master.longEntry36.config(state="normal")
+
+    def disableMasterEntries(self):
+        self.master.shortEntry1.config(state="readonly")
+        self.master.shortEntry2.config(state="readonly")
+        self.master.shortEntry3.config(state="readonly")
+        self.master.shortEntry4.config(state="readonly")
+        self.master.shortEntry5.config(state="readonly")
+        self.master.shortEntry6.config(state="readonly")
+
+        self.master.longEntry11.config(state="readonly")
+        self.master.longEntry12.config(state="readonly")
+        self.master.longEntry13.config(state="readonly")
+        self.master.longEntry14.config(state="readonly")
+        self.master.longEntry15.config(state="readonly")
+        self.master.longEntry16.config(state="readonly")
+
+        self.master.longEntry21.config(state="readonly")
+        self.master.longEntry22.config(state="readonly")
+        self.master.longEntry23.config(state="readonly")
+        self.master.longEntry24.config(state="readonly")
+        self.master.longEntry25.config(state="readonly")
+        self.master.longEntry26.config(state="readonly")
+
+        self.master.longEntry31.config(state="readonly")
+        self.master.longEntry32.config(state="readonly")
+        self.master.longEntry33.config(state="readonly")
+        self.master.longEntry34.config(state="readonly")
+        self.master.longEntry35.config(state="readonly")
+        self.master.longEntry36.config(state="readonly")
+
+    def cleanMasterEntries(self):
+        self.master.shortEntry1.delete(0, "end")
+        self.master.shortEntry2.delete(0, "end")
+        self.master.shortEntry3.delete(0, "end")
+        self.master.shortEntry4.delete(0, "end")
+        self.master.shortEntry5.delete(0, "end")
+        self.master.shortEntry6.delete(0, "end")
+
+        self.master.longEntry11.delete(0, "end")
+        self.master.longEntry12.delete(0, "end")
+        self.master.longEntry13.delete(0, "end")
+        self.master.longEntry14.delete(0, "end")
+        self.master.longEntry15.delete(0, "end")
+        self.master.longEntry16.delete(0, "end")
+
+        self.master.longEntry21.delete(0, "end")
+        self.master.longEntry22.delete(0, "end")
+        self.master.longEntry23.delete(0, "end")
+        self.master.longEntry24.delete(0, "end")
+        self.master.longEntry25.delete(0, "end")
+        self.master.longEntry26.delete(0, "end")
+
+        self.master.longEntry31.delete(0, "end")
+        self.master.longEntry32.delete(0, "end")
+        self.master.longEntry33.delete(0, "end")
+        self.master.longEntry34.delete(0, "end")
+        self.master.longEntry35.delete(0, "end")
+        self.master.longEntry36.delete(0, "end")
