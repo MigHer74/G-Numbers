@@ -64,3 +64,20 @@ def dbaRetriveValues(dbtype):
     dbcon.close()
 
     return dbdata
+
+
+def dbaRetriveOrderValues(dbtype):
+    if dbtype == "short":
+        dbtype = "S"
+        sqlrow = f"SELECT * FROM games WHERE gType = '{dbtype}' ORDER BY gweek"
+    else:
+        dbtype = "L"
+        sqlrow = f"""SELECT * FROM games WHERE gType = '{dbtype}' ORDER BY
+                     gweek, ggame"""
+
+    dbcon = dbaConnection()
+    dbcur = dbcon.cursor()
+    dbdata = dbcur.execute(sqlrow).fetchall()
+    dbcon.close()
+
+    return dbdata
