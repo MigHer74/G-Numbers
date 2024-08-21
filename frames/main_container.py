@@ -1,6 +1,7 @@
 from tkinter import Tk, Menu, LabelFrame, Label, Entry
 from frames import game_container as gc
 from frames import regame_container as rgc
+from frames import sview_container as svc
 import db_functions as dba
 
 
@@ -154,17 +155,18 @@ class Gnumber(Tk):
         self.optionGame.add_separator()
         self.optionGame.add_command(label="Exit", command=self.quit)
 
-        self.optionView = Menu(self.mainMenu, tearoff=0)
-        self.mainMenu.add_cascade(label="View", menu=self.optionView)
-
-        self.optionView.add_cascade(label="Short Game")
-        self.optionView.add_cascade(label="Long Game")
-
         self.optionData = Menu(self.mainMenu, tearoff=0)
         self.mainMenu.add_cascade(label="Data", menu=self.optionData)
 
-        self.optionData.add_cascade(label="Previous Data")
-        self.optionData.add_cascade(label="Winner Numbers")
+        self.optionData.add_cascade(label="Short Game",
+                                    command=lambda: svc.ShortView(self))
+        self.optionData.add_cascade(label="Long Game")
+
+        # self.optionData = Menu(self.mainMenu, tearoff=0)
+        # self.mainMenu.add_cascade(label="Data", menu=self.optionData)
+
+        # self.optionData.add_cascade(label="Previous Data")
+        # self.optionData.add_cascade(label="Winner Numbers")
 
         self.optionAbout = Menu(self.mainMenu, tearoff=0)
         self.mainMenu.add_cascade(label="About", menu=self.optionAbout)
