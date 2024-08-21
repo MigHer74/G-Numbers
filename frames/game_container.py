@@ -174,6 +174,23 @@ class GPanel(Toplevel):
                                  state="readonly")
         self.longEntry36.grid(row=2, column=6, padx=(10, 15), pady=10)
 
+        self.panelThree = Frame(self)
+        self.panelThree.grid(row=1, column=0, columnspan=2, padx=15,
+                             pady=(10, 15), sticky="we")
+
+        self.panelButton = Frame(self.panelThree)
+        self.panelButton.grid(row=0, column=0)
+
+        self.buttonNew = Button(self.panelButton, width=15, text="New Game",
+                                state="disabled", command=self.gameNew)
+        self.buttonNew.pack()
+
+        self.panelResults = LabelFrame(self.panelThree, width=310, height=150,
+                                       text=" Numbers Repetition ",
+                                       labelanchor="n")
+        self.panelResults.grid(row=0, column=1, padx=(25, 0))
+        self.panelResults.grid_propagate(False)
+
     def buildResults(self):
         (listResult1, listResult2,
          listResult3, listResult4) = gen.gEngine(self.gameType.get())
@@ -188,23 +205,6 @@ class GPanel(Toplevel):
             result2 = f"5 --> {", ".join(listResult2)}"
             result3 = f"4 --> {", ".join(listResult3)}"
             result4 = f"3 --> {", ".join(listResult4)}"
-
-        self.panelThree = Frame(self)
-        self.panelThree.grid(row=1, column=0, columnspan=2, padx=15,
-                             pady=(10, 15), sticky="we")
-
-        self.panelButton = Frame(self.panelThree)
-        self.panelButton.grid(row=0, column=0)
-
-        self.buttonNew = Button(self.panelButton, width=15, text="New Game",
-                                command=self.gameNew)
-        self.buttonNew.pack()
-
-        self.panelResults = LabelFrame(self.panelThree, width=310, height=150,
-                                       text=" Numbers Repetition ",
-                                       labelanchor="n")
-        self.panelResults.grid(row=0, column=1, padx=(25, 0))
-        self.panelResults.grid_propagate(False)
 
         self.labelRow01 = Label(self.panelResults, text=result1)
         self.labelRow01.grid(row=0, column=0, padx=10, pady=(5, 0),
@@ -244,6 +244,7 @@ class GPanel(Toplevel):
     def gameplay(self):
         self.buttonPlay.config(state="disabled")
         self.buttonReset.config(state="disabled")
+        self.buttonNew.config(state="normal")
 
         dba.dbaUpdateGame(self.gameType.get())
 
@@ -292,7 +293,11 @@ class GPanel(Toplevel):
         self.updateMaster()
 
     def gameNew(self):
-        self.panelThree.destroy()
+        self.labelRow01.destroy()
+        self.labelRow02.destroy()
+        self.labelRow03.destroy()
+        self.labelRow04.destroy()
+        self.buttonNew.config(state="disabled")
         self.enableEntries()
         self.gameReset()
 
