@@ -1,12 +1,19 @@
-from tkinter import Tk, Frame, LabelFrame, Entry, Label, Button
+from tkinter import Toplevel, Frame, LabelFrame, Entry, Label, Button
 from tkinter.ttk import Combobox
+import db_functions as dba
 
 
-class ShortView(Tk):
-    def __init__(self):
+class ShortView(Toplevel):
+    def __init__(self, parent):
         super().__init__()
+        self.transient(parent)
+        self.grab_set()
         self.shortBuild()
         self.enableEntries()
+        self.cleanEntries()
+        self.retrieveData()
+        self.disableEntries()
+        self.focus()
 
     def shortBuild(self):
         self.title("G-Numbers | Data Short Game")
@@ -148,8 +155,7 @@ class ShortView(Tk):
                                  state="readonly")
         self.entryWeek66.grid(row=5, column=6, padx=(0, 15), pady=(10, 10))
 
-        self.buttonUpdate = Button(self, width=15, text="Update",
-                                   state="disabled")
+        self.buttonUpdate = Button(self, width=15, text="Update")
         self.buttonUpdate.pack(pady=(20, 0))
 
         self.panelModify = LabelFrame(self, text=" Update Data Storage ",
@@ -207,6 +213,51 @@ class ShortView(Tk):
         self.buttonClose = Button(self.buttonPanel, width=15, text="Close",
                                   command=self.destroy)
         self.buttonClose.grid(row=1, column=1, pady=(15, 0))
+
+    def retrieveData(self):
+        datashort = dba.dbaRetriveOrderValues("short")
+
+        self.entryWeek11.insert(0, datashort[0][3])
+        self.entryWeek12.insert(0, datashort[0][4])
+        self.entryWeek13.insert(0, datashort[0][5])
+        self.entryWeek14.insert(0, datashort[0][6])
+        self.entryWeek15.insert(0, datashort[0][7])
+        self.entryWeek16.insert(0, datashort[0][8])
+
+        self.entryWeek21.insert(0, datashort[1][3])
+        self.entryWeek22.insert(0, datashort[1][4])
+        self.entryWeek23.insert(0, datashort[1][5])
+        self.entryWeek24.insert(0, datashort[1][6])
+        self.entryWeek25.insert(0, datashort[1][7])
+        self.entryWeek26.insert(0, datashort[1][8])
+
+        self.entryWeek31.insert(0, datashort[2][3])
+        self.entryWeek32.insert(0, datashort[2][4])
+        self.entryWeek33.insert(0, datashort[2][5])
+        self.entryWeek34.insert(0, datashort[2][6])
+        self.entryWeek35.insert(0, datashort[2][7])
+        self.entryWeek36.insert(0, datashort[2][8])
+
+        self.entryWeek41.insert(0, datashort[3][3])
+        self.entryWeek42.insert(0, datashort[3][4])
+        self.entryWeek43.insert(0, datashort[3][5])
+        self.entryWeek44.insert(0, datashort[3][6])
+        self.entryWeek45.insert(0, datashort[3][7])
+        self.entryWeek46.insert(0, datashort[3][8])
+
+        self.entryWeek51.insert(0, datashort[4][3])
+        self.entryWeek52.insert(0, datashort[4][4])
+        self.entryWeek53.insert(0, datashort[4][5])
+        self.entryWeek54.insert(0, datashort[4][6])
+        self.entryWeek55.insert(0, datashort[4][7])
+        self.entryWeek56.insert(0, datashort[4][8])
+
+        self.entryWeek61.insert(0, datashort[5][3])
+        self.entryWeek62.insert(0, datashort[5][4])
+        self.entryWeek63.insert(0, datashort[5][5])
+        self.entryWeek64.insert(0, datashort[5][6])
+        self.entryWeek65.insert(0, datashort[5][7])
+        self.entryWeek66.insert(0, datashort[5][8])
 
     def enableEntries(self):
         self.entryWeek11.config(state="normal")
@@ -294,6 +345,45 @@ class ShortView(Tk):
         self.entryWeek65.config(state="readonly")
         self.entryWeek66.config(state="readonly")
 
+    def cleanEntries(self):
+        self.entryWeek11.delete(0, "end")
+        self.entryWeek12.delete(0, "end")
+        self.entryWeek13.delete(0, "end")
+        self.entryWeek14.delete(0, "end")
+        self.entryWeek15.delete(0, "end")
+        self.entryWeek16.delete(0, "end")
 
-app = ShortView()
-app.mainloop()
+        self.entryWeek21.delete(0, "end")
+        self.entryWeek22.delete(0, "end")
+        self.entryWeek23.delete(0, "end")
+        self.entryWeek24.delete(0, "end")
+        self.entryWeek25.delete(0, "end")
+        self.entryWeek26.delete(0, "end")
+
+        self.entryWeek31.delete(0, "end")
+        self.entryWeek32.delete(0, "end")
+        self.entryWeek33.delete(0, "end")
+        self.entryWeek34.delete(0, "end")
+        self.entryWeek35.delete(0, "end")
+        self.entryWeek36.delete(0, "end")
+
+        self.entryWeek41.delete(0, "end")
+        self.entryWeek42.delete(0, "end")
+        self.entryWeek43.delete(0, "end")
+        self.entryWeek44.delete(0, "end")
+        self.entryWeek45.delete(0, "end")
+        self.entryWeek46.delete(0, "end")
+
+        self.entryWeek51.delete(0, "end")
+        self.entryWeek52.delete(0, "end")
+        self.entryWeek53.delete(0, "end")
+        self.entryWeek54.delete(0, "end")
+        self.entryWeek55.delete(0, "end")
+        self.entryWeek56.delete(0, "end")
+
+        self.entryWeek61.delete(0, "end")
+        self.entryWeek62.delete(0, "end")
+        self.entryWeek63.delete(0, "end")
+        self.entryWeek64.delete(0, "end")
+        self.entryWeek65.delete(0, "end")
+        self.entryWeek66.delete(0, "end")
