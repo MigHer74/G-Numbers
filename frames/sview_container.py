@@ -6,6 +6,7 @@ class ShortView(Tk):
     def __init__(self):
         super().__init__()
         self.shortBuild()
+        self.enableEntries()
 
     def shortBuild(self):
         self.title("G-Numbers | Data Short Game")
@@ -206,6 +207,92 @@ class ShortView(Tk):
         self.buttonClose = Button(self.buttonPanel, width=15, text="Close",
                                   command=self.destroy)
         self.buttonClose.grid(row=1, column=1, pady=(15, 0))
+
+    def enableEntries(self):
+        self.entryWeek11.config(state="normal")
+        self.entryWeek12.config(state="normal")
+        self.entryWeek13.config(state="normal")
+        self.entryWeek14.config(state="normal")
+        self.entryWeek15.config(state="normal")
+        self.entryWeek16.config(state="normal")
+
+        self.entryWeek21.config(state="normal")
+        self.entryWeek22.config(state="normal")
+        self.entryWeek23.config(state="normal")
+        self.entryWeek24.config(state="normal")
+        self.entryWeek25.config(state="normal")
+        self.entryWeek26.config(state="normal")
+
+        self.entryWeek31.config(state="normal")
+        self.entryWeek32.config(state="normal")
+        self.entryWeek33.config(state="normal")
+        self.entryWeek34.config(state="normal")
+        self.entryWeek35.config(state="normal")
+        self.entryWeek36.config(state="normal")
+
+        self.entryWeek41.config(state="normal")
+        self.entryWeek42.config(state="normal")
+        self.entryWeek43.config(state="normal")
+        self.entryWeek44.config(state="normal")
+        self.entryWeek45.config(state="normal")
+        self.entryWeek46.config(state="normal")
+
+        self.entryWeek51.config(state="normal")
+        self.entryWeek52.config(state="normal")
+        self.entryWeek53.config(state="normal")
+        self.entryWeek54.config(state="normal")
+        self.entryWeek55.config(state="normal")
+        self.entryWeek56.config(state="normal")
+
+        self.entryWeek61.config(state="normal")
+        self.entryWeek62.config(state="normal")
+        self.entryWeek63.config(state="normal")
+        self.entryWeek64.config(state="normal")
+        self.entryWeek65.config(state="normal")
+        self.entryWeek66.config(state="normal")
+
+    def disableEntries(self):
+        self.entryWeek11.config(state="readonly")
+        self.entryWeek12.config(state="readonly")
+        self.entryWeek13.config(state="readonly")
+        self.entryWeek14.config(state="readonly")
+        self.entryWeek15.config(state="readonly")
+        self.entryWeek16.config(state="readonly")
+
+        self.entryWeek21.config(state="readonly")
+        self.entryWeek22.config(state="readonly")
+        self.entryWeek23.config(state="readonly")
+        self.entryWeek24.config(state="readonly")
+        self.entryWeek25.config(state="readonly")
+        self.entryWeek26.config(state="readonly")
+
+        self.entryWeek31.config(state="readonly")
+        self.entryWeek32.config(state="readonly")
+        self.entryWeek33.config(state="readonly")
+        self.entryWeek34.config(state="readonly")
+        self.entryWeek35.config(state="readonly")
+        self.entryWeek36.config(state="readonly")
+
+        self.entryWeek41.config(state="readonly")
+        self.entryWeek42.config(state="readonly")
+        self.entryWeek43.config(state="readonly")
+        self.entryWeek44.config(state="readonly")
+        self.entryWeek45.config(state="readonly")
+        self.entryWeek46.config(state="readonly")
+
+        self.entryWeek51.config(state="readonly")
+        self.entryWeek52.config(state="readonly")
+        self.entryWeek53.config(state="readonly")
+        self.entryWeek54.config(state="readonly")
+        self.entryWeek55.config(state="readonly")
+        self.entryWeek56.config(state="readonly")
+
+        self.entryWeek61.config(state="readonly")
+        self.entryWeek62.config(state="readonly")
+        self.entryWeek63.config(state="readonly")
+        self.entryWeek64.config(state="readonly")
+        self.entryWeek65.config(state="readonly")
+        self.entryWeek66.config(state="readonly")
 
 
 app = ShortView()
