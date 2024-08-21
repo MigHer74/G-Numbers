@@ -5,16 +5,17 @@
 <br>
 
 ## Project Files
-| File                | Description                                                         |
-| ------------------- | ------------------------------------------------------------------- |
-| main.py             | Main file script.                                                   |
-| game_engine.py      | The code that allows to get the results of the games.               |
-| db_functions.py     | The functions to work with the database.                            |
-| main_container.py   | Main window script contains main menu bar with all the app options. |
-| game_container.py   | Game window, select the game y get the results.                     |
-| regame_container.py | Replay game window, select the game to replay.                      |
-| .gitignore          | Includes non-important files of the project.                        |
-| readme.md           | Description and information of the project.                         |
+| File                | Description                                                           |
+| ------------------- | --------------------------------------------------------------------- |
+| main.py             | Main file script.                                                     |
+| game_engine.py      | The code that allows to get the results of the games.                 |
+| db_functions.py     | The functions to work with the database.                              |
+| main_container.py   | Main window script contains main menu bar with all the app options.   |
+| game_container.py   | Game window, select the game y get the results.                       |
+| regame_container.py | Replay game window, select the game to replay.                        |
+| sview_container.py  | Window to view all the short games and update the data if is need it. |
+| .gitignore          | Includes non-important files of the project.                          |
+| readme.md           | Description and information of the project.                           |
 <br>
 
 ## Project Folders
