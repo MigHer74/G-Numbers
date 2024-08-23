@@ -120,3 +120,15 @@ def dbaRetrieveOneWeek(dbtype, dbweek):
     dbcon.close()
 
     return dbdata
+
+
+def dbaUpdateOneWeek(dbtype, dbweek, dbgame, dbdata):
+    sqlrow = f"""UPDATE games SET gNumber1 = ?, gNumber2 = ?, gNumber3 = ?,
+    gNumber4 = ?, gNumber5 = ?, gNumber6 = ? WHERE gtype = '{dbtype}' AND
+    gweek = '{dbweek}' AND ggame = {dbgame}"""
+
+    dbcon = dbaConnection()
+    dbcur = dbcon.cursor()
+    dbcur.execute(sqlrow, dbdata)
+    dbcon.commit()
+    dbcon.close()
