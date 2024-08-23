@@ -10,7 +10,7 @@ def dbaCreateDatabase():
     dbcon = dbaConnection()
     dbcur = dbcon.cursor()
 
-    sqlrow = """CREATE TABLE IF NOT EXISTS 'games' (  
+    sqlrow = """CREATE TABLE IF NOT EXISTS 'games' (
     gType TEXT,
     gWeek TEXT,
     gGame INTEGER,
