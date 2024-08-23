@@ -6,6 +6,27 @@ def dbaConnection():
     return dbaConnect
 
 
+def dbaCreateDatabase():
+    dbcon = dbaConnection()
+    dbcur = dbcon.cursor()
+
+    sqlrow = """CREATE TABLE IF NOT EXISTS 'games' (  
+    gType TEXT,
+    gWeek TEXT,
+    gGame INTEGER,
+    gNumber1 INTEGER,
+    gNumber2 INTEGER,
+    gNumber3 INTEGER,
+    gNumber4 INTEGER,
+    gNumber5 INTEGER,
+    gNumber6 INTEGER
+);"""
+
+    dbcur.execute(sqlrow)
+    dbcon.commit()
+    dbcon.close()
+
+
 def dbaShowLatest():
     dbcon = dbaConnection()
     dbcur = dbcon.cursor()
