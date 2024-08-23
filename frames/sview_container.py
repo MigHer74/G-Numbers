@@ -221,7 +221,13 @@ class ShortView(Toplevel):
         self.comboWeek.bind("<<ComboboxSelected>>", self.selectWeek)
 
     def selectWeek(self, event):
-        print(self.comboWeek.get())
+        self.selectedWeek = ("W" + self.comboWeek.get())
+        self.dataWeek = dba.dbaRetrieveOneWeek("short", self.selectedWeek)
+        self.enableWeekEntries()
+        self.cleanWeekEntries()
+        self.insertWeekEntries()
+        self.buttonYes.config(state="normal")
+        self.buttonNo.config(state="normal")
 
     def retrieveData(self):
         datashort = dba.dbaRetriveOrderValues("short")
@@ -396,3 +402,28 @@ class ShortView(Toplevel):
         self.entryWeek64.delete(0, "end")
         self.entryWeek65.delete(0, "end")
         self.entryWeek66.delete(0, "end")
+
+    def enableWeekEntries(self):
+        self.entryWeek1.config(state="normal")
+        self.entryWeek2.config(state="normal")
+        self.entryWeek3.config(state="normal")
+        self.entryWeek4.config(state="normal")
+        self.entryWeek5.config(state="normal")
+        self.entryWeek6.config(state="normal")
+
+    def cleanWeekEntries(self):
+        self.entryWeek1.delete("0", "end")
+        self.entryWeek2.delete("0", "end")
+        self.entryWeek3.delete("0", "end")
+        self.entryWeek4.delete("0", "end")
+        self.entryWeek5.delete("0", "end")
+        self.entryWeek6.delete("0", "end")
+
+    def insertWeekEntries(self):
+        self.entryWeek1.insert("0", self.dataWeek[0][3])
+        self.entryWeek2.insert("0", self.dataWeek[0][4])
+        self.entryWeek3.insert("0", self.dataWeek[0][5])
+        self.entryWeek4.insert("0", self.dataWeek[0][6])
+        self.entryWeek5.insert("0", self.dataWeek[0][7])
+        self.entryWeek6.insert("0", self.dataWeek[0][8])
+        self.entryWeek1.focus()
