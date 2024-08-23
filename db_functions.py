@@ -112,9 +112,8 @@ def dbaRetrieveOneWeek(dbtype, dbweek):
 
     sqlrow1 = f"SELECT * FROM games WHERE gType = '{dbtype}' "
     sqlrow2 = f"AND gWeek = '{dbweek}'"
-
     sqlrow = sqlrow1 + sqlrow2
-    print(sqlrow)
+
     dbcon = dbaConnection()
     dbcur = dbcon.cursor()
     dbdata = dbcur.execute(sqlrow).fetchall()
