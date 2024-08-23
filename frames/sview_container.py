@@ -208,7 +208,7 @@ class ShortView(Toplevel):
         self.buttonYes.grid(row=0, column=0, padx=(0, 20))
 
         self.buttonNo = Button(self.buttonPanel, width=15, text="Cancel",
-                               state="disabled")
+                               state="disabled", command=self.cancelData)
         self.buttonNo.grid(row=0, column=1)
 
         self.buttonClose = Button(self.buttonPanel, width=15, text="Close",
@@ -219,6 +219,16 @@ class ShortView(Toplevel):
         self.buttonUpdate.config(state="disabled")
         self.comboWeek.config(state="readonly")
         self.comboWeek.bind("<<ComboboxSelected>>", self.selectWeek)
+
+    def cancelData(self):
+        self.comboWeek.config(state="active")
+        self.comboWeek.delete(0, "end")
+        self.comboWeek.config(state="disabled")
+        self.buttonYes.config(state="disabled")
+        self.buttonNo.config(state="disabled")
+        self.buttonUpdate.config(state="active")
+        self.cleanWeekEntries()
+        self.disableWeekEntries()
 
     def selectWeek(self, event):
         self.selectedWeek = ("W" + self.comboWeek.get())
@@ -410,6 +420,14 @@ class ShortView(Toplevel):
         self.entryWeek4.config(state="normal")
         self.entryWeek5.config(state="normal")
         self.entryWeek6.config(state="normal")
+
+    def disableWeekEntries(self):
+        self.entryWeek1.config(state="readonly")
+        self.entryWeek2.config(state="readonly")
+        self.entryWeek3.config(state="readonly")
+        self.entryWeek4.config(state="readonly")
+        self.entryWeek5.config(state="readonly")
+        self.entryWeek6.config(state="readonly")
 
     def cleanWeekEntries(self):
         self.entryWeek1.delete("0", "end")
