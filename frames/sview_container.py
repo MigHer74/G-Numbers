@@ -9,6 +9,7 @@ class ShortView(Toplevel):
         self.transient(parent)
         self.grab_set()
         self.shortBuild()
+        self.shortCenter()
         self.enableEntries()
         self.cleanEntries()
         self.retrieveData()
@@ -511,3 +512,13 @@ class ShortView(Toplevel):
         self.master.shortEntry4.config(state="readonly")
         self.master.shortEntry5.config(state="readonly")
         self.master.shortEntry6.config(state="readonly")
+
+    def shortCenter(self):
+        self.update()
+        w = self.winfo_width()
+        h = self.winfo_height()
+        ws = self.winfo_screenwidth()
+        hs = self.winfo_screenheight()
+        x = int(ws/2 - w/2)
+        y = int(hs/2 - h/2)
+        self.geometry(f"{w}x{h}+{x}+{y}")
