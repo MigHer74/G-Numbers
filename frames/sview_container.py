@@ -232,12 +232,20 @@ class ShortView(Toplevel):
 
     def saveData(self):
         tempWeek = "W" + self.comboWeek.get()
-        tempData = (int(self.entryWeek1.get()),
-                    int(self.entryWeek2.get()),
-                    int(self.entryWeek3.get()),
-                    int(self.entryWeek4.get()),
-                    int(self.entryWeek5.get()),
-                    int(self.entryWeek6.get()))
+
+        self.tempData1 = int(self.entryWeek1.get())
+        self.tempData2 = int(self.entryWeek2.get())
+        self.tempData3 = int(self.entryWeek3.get())
+        self.tempData4 = int(self.entryWeek4.get())
+        self.tempData5 = int(self.entryWeek5.get())
+        self.tempData6 = int(self.entryWeek6.get())
+
+        tempData = (self.tempData1,
+                    self.tempData2,
+                    self.tempData3,
+                    self.tempData4,
+                    self.tempData5,
+                    self.tempData6)
 
         dba.dbaUpdateOneWeek("S", tempWeek, 1, tempData)
 
@@ -247,6 +255,9 @@ class ShortView(Toplevel):
         self.retrieveData()
         self.disableEntries()
 
+        if tempWeek[1] == "1":
+            self.updateShortMaster()
+
     def selectWeek(self, event):
         self.selectedWeek = ("W" + self.comboWeek.get())
         self.dataWeek = dba.dbaRetrieveOneWeek("short", self.selectedWeek)
@@ -255,6 +266,12 @@ class ShortView(Toplevel):
         self.insertWeekEntries()
         self.buttonYes.config(state="normal")
         self.buttonNo.config(state="normal")
+
+    def updateShortMaster(self):
+        self.enableShortMaster()
+        self.cleanShortMaster()
+        self.insertShortMaster()
+        self.disableShortMaster()
 
     def retrieveData(self):
         datashort = dba.dbaRetriveOrderValues("short")
@@ -462,3 +479,35 @@ class ShortView(Toplevel):
         self.entryWeek5.insert("0", self.dataWeek[0][7])
         self.entryWeek6.insert("0", self.dataWeek[0][8])
         self.entryWeek1.focus()
+
+    def enableShortMaster(self):
+        self.master.shortEntry1.config(state="normal")
+        self.master.shortEntry2.config(state="normal")
+        self.master.shortEntry3.config(state="normal")
+        self.master.shortEntry4.config(state="normal")
+        self.master.shortEntry5.config(state="normal")
+        self.master.shortEntry6.config(state="normal")
+
+    def cleanShortMaster(self):
+        self.master.shortEntry1.delete(0, "end")
+        self.master.shortEntry2.delete(0, "end")
+        self.master.shortEntry3.delete(0, "end")
+        self.master.shortEntry4.delete(0, "end")
+        self.master.shortEntry5.delete(0, "end")
+        self.master.shortEntry6.delete(0, "end")
+
+    def insertShortMaster(self):
+        self.master.shortEntry1.insert(0, self.tempData1)
+        self.master.shortEntry2.insert(0, self.tempData2)
+        self.master.shortEntry3.insert(0, self.tempData3)
+        self.master.shortEntry4.insert(0, self.tempData4)
+        self.master.shortEntry5.insert(0, self.tempData5)
+        self.master.shortEntry6.insert(0, self.tempData6)
+
+    def disableShortMaster(self):
+        self.master.shortEntry1.config(state="readonly")
+        self.master.shortEntry2.config(state="readonly")
+        self.master.shortEntry3.config(state="readonly")
+        self.master.shortEntry4.config(state="readonly")
+        self.master.shortEntry5.config(state="readonly")
+        self.master.shortEntry6.config(state="readonly")
