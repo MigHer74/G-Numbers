@@ -155,7 +155,8 @@ class ShortView(Toplevel):
                                  state="readonly")
         self.entryWeek66.grid(row=5, column=6, padx=(0, 15), pady=(10, 10))
 
-        self.buttonUpdate = Button(self, width=15, text="Update")
+        self.buttonUpdate = Button(self, width=15, text="Update",
+                                   command=self.updateData)
         self.buttonUpdate.pack(pady=(20, 0))
 
         self.panelModify = LabelFrame(self, text=" Update Data Storage ",
@@ -213,6 +214,14 @@ class ShortView(Toplevel):
         self.buttonClose = Button(self.buttonPanel, width=15, text="Close",
                                   command=self.destroy)
         self.buttonClose.grid(row=1, column=1, pady=(15, 0))
+
+    def updateData(self):
+        self.buttonUpdate.config(state="disabled")
+        self.comboWeek.config(state="readonly")
+        self.comboWeek.bind("<<ComboboxSelected>>", self.selectWeek)
+
+    def selectWeek(self, event):
+        print(self.comboWeek.get())
 
     def retrieveData(self):
         datashort = dba.dbaRetriveOrderValues("short")
