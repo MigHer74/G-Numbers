@@ -2,6 +2,7 @@ from tkinter import Tk, Menu, LabelFrame, Label, Entry
 from frames import game_container as gc
 from frames import regame_container as rgc
 from frames import sview_container as svc
+from frames import lview_container as lvc
 import db_functions as dba
 
 
@@ -160,7 +161,8 @@ class Gnumber(Tk):
 
         self.optionData.add_cascade(label="Short Game",
                                     command=lambda: svc.ShortView(self))
-        self.optionData.add_cascade(label="Long Game")
+        self.optionData.add_cascade(label="Long Game",
+                                    command=lambda: lvc.LongView(self))
 
         # self.optionData = Menu(self.mainMenu, tearoff=0)
         # self.mainMenu.add_cascade(label="Data", menu=self.optionData)
