@@ -121,7 +121,3 @@ def dbaRetrieveOneWeek(dbtype, dbweek):
     dbcon.close()
 
     return dbdata
-
-
-a = dbaRetrieveOneWeek("short", "W3")
-print(a)
