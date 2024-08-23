@@ -204,7 +204,7 @@ class ShortView(Toplevel):
         self.buttonPanel.pack(pady=(10, 20))
 
         self.buttonYes = Button(self.buttonPanel, width=15, text="Save",
-                                state="disabled")
+                                state="disabled", command=self.saveData)
         self.buttonYes.grid(row=0, column=0, padx=(0, 20))
 
         self.buttonNo = Button(self.buttonPanel, width=15, text="Cancel",
@@ -229,6 +229,23 @@ class ShortView(Toplevel):
         self.buttonUpdate.config(state="active")
         self.cleanWeekEntries()
         self.disableWeekEntries()
+
+    def saveData(self):
+        tempWeek = "W" + self.comboWeek.get()
+        tempData = (int(self.entryWeek1.get()),
+                    int(self.entryWeek2.get()),
+                    int(self.entryWeek3.get()),
+                    int(self.entryWeek4.get()),
+                    int(self.entryWeek5.get()),
+                    int(self.entryWeek6.get()))
+
+        dba.dbaUpdateOneWeek("S", tempWeek, 1, tempData)
+
+        self.cancelData()
+        self.enableEntries()
+        self.cleanEntries()
+        self.retrieveData()
+        self.disableEntries()
 
     def selectWeek(self, event):
         self.selectedWeek = ("W" + self.comboWeek.get())
