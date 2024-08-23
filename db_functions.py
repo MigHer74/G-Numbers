@@ -102,3 +102,26 @@ def dbaRetriveOrderValues(dbtype):
     dbcon.close()
 
     return dbdata
+
+
+def dbaRetrieveOneWeek(dbtype, dbweek):
+    if dbtype == "short":
+        dbtype = "S"
+    else:
+        dbtype = "L"
+
+    sqlrow1 = f"SELECT * FROM games WHERE gType = '{dbtype}' "
+    sqlrow2 = f"AND gWeek = '{dbweek}'"
+
+    sqlrow = sqlrow1 + sqlrow2
+    print(sqlrow)
+    dbcon = dbaConnection()
+    dbcur = dbcon.cursor()
+    dbdata = dbcur.execute(sqlrow).fetchall()
+    dbcon.close()
+
+    return dbdata
+
+
+a = dbaRetrieveOneWeek("short", "W3")
+print(a)
