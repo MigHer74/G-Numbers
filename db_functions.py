@@ -87,14 +87,14 @@ def dbaRetriveValues(dbtype):
     return dbdata
 
 
-def dbaRetriveOrderValues(dbtype):
+def dbaRetrieveOrderValues(dbtype, dbweek=None):
     if dbtype == "short":
         dbtype = "S"
         sqlrow = f"SELECT * FROM games WHERE gType = '{dbtype}' ORDER BY gweek"
     else:
         dbtype = "L"
-        sqlrow = f"""SELECT * FROM games WHERE gType = '{dbtype}' ORDER BY
-                     gweek, ggame"""
+        sqlrow = f"""SELECT * FROM games WHERE gType = '{dbtype}'
+        AND gWeek = '{dbweek}' ORDER BY gweek, ggame"""
 
     dbcon = dbaConnection()
     dbcur = dbcon.cursor()
