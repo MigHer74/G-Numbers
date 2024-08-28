@@ -275,7 +275,7 @@ class ShortView(Toplevel):
         self.disableShortMaster()
 
     def retrieveData(self):
-        datashort = dba.dbaRetriveOrderValues("short")
+        datashort = dba.dbaRetrieveOrderValues("short")
 
         self.entryWeek11.insert(0, datashort[0][3])
         self.entryWeek12.insert(0, datashort[0][4])
