@@ -144,6 +144,22 @@ class LongView(Toplevel):
         self.buttonUpdate = Button(self, width=15, text="Update")
         self.buttonUpdate.grid(row=3, column=0, columnspan=3, pady=(20, 0))
 
+        self.updateFrame = LabelFrame(self, text=" Update Data Storage")
+        self.updateFrame.grid(row=4, column=0, padx=(15, 15), pady=(20, 15))
+
+        self.buttonFrame = Frame(self.updateFrame)
+        self.buttonFrame.grid(row=0, column=0)
+
+        self.buttonSave = Button(self.buttonFrame, width=15, text="Save")
+        self.buttonSave.grid(row=0, column=0)
+
+        self.buttonCancel = Button(self.buttonFrame, width=15, text="Cancel")
+        self.buttonCancel.grid(row=1, column=0)
+
+        self.buttonClose = Button(self.buttonFrame, width=15, text="Close",
+                                  command=self.destroy)
+        self.buttonClose.grid(row=2, column=0)
+
     def loadData(self):
         (self.week1Game1, self.week1Game2,
          self.week1Game3) = gt.load_weeks("long", "W1")
