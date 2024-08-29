@@ -15,7 +15,7 @@
 | game_container.py   | Game window, select the game y get the results.                       |
 | regame_container.py | Replay game window, select the game to replay.                        |
 | sview_container.py  | Window to view all the short games and update the data if is need it. |
-| sview_container.py  | Window to view all the long games and update the data if is need it.  |
+| lview_container.py  | Window to view all the long games and update the data if is need it.  |
 | .gitignore          | Includes non-important files of the project.                          |
 | readme.md           | Description and information of the project.                           |
 <br>
