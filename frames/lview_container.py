@@ -144,11 +144,104 @@ class LongView(Toplevel):
         self.buttonUpdate = Button(self, width=15, text="Update")
         self.buttonUpdate.grid(row=3, column=0, columnspan=3, pady=(20, 0))
 
-        self.updateFrame = LabelFrame(self, text=" Update Data Storage")
-        self.updateFrame.grid(row=4, column=0, padx=(15, 15), pady=(20, 15))
+        self.updateFrame = LabelFrame(self, text=" Update Data Storage",
+                                      labelanchor="n")
+        self.updateFrame.grid(row=4, column=0, columnspan=3, padx=(15, 15),
+                              pady=(20, 15))
+
+        self.entryFrame = Frame(self.updateFrame)
+        self.entryFrame.grid(row=0, column=0)
+
+        self.labelWeek = Label(self.entryFrame, text="Week:")
+        self.labelWeek.grid(row=0, column=0)
+
+        self.labelGame1 = Label(self.entryFrame, text="Game #1:")
+        self.labelGame1.grid(row=1, column=0)
+
+        self.entryWeek = Entry(self.entryFrame, width=4, justify="center",
+                               state="readonly")
+        self.entryWeek.grid(row=0, column=1)
+
+        self.entryGame11 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame11.grid(row=1, column=1)
+
+        self.entryGame12 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame12.grid(row=1, column=2)
+
+        self.entryGame13 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame13.grid(row=1, column=3)
+
+        self.entryGame14 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame14.grid(row=1, column=4)
+
+        self.entryGame15 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame15.grid(row=1, column=5)
+
+        self.entryGame16 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame16.grid(row=1, column=6)
+
+        self.labelGame2 = Label(self.entryFrame, text="Game #2:")
+        self.labelGame2.grid(row=2, column=0)
+
+        self.entryGame21 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame21.grid(row=2, column=1)
+
+        self.entryGame22 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame22.grid(row=2, column=2)
+
+        self.entryGame23 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame23.grid(row=2, column=3)
+
+        self.entryGame24 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame24.grid(row=2, column=4)
+
+        self.entryGame25 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame25.grid(row=2, column=5)
+
+        self.entryGame26 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame26.grid(row=2, column=6)
+
+        self.labelGame3 = Label(self.entryFrame, text="Game #3:")
+        self.labelGame3.grid(row=3, column=0)
+
+        self.entryGame31 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame31.grid(row=3, column=1)
+
+        self.entryGame32 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame32.grid(row=3, column=2)
+
+        self.entryGame33 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame33.grid(row=3, column=3)
+
+        self.entryGame34 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame34.grid(row=3, column=4)
+
+        self.entryGame35 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame35.grid(row=3, column=5)
+
+        self.entryGame36 = Entry(self.entryFrame, width=4, justify="center",
+                                 state="readonly")
+        self.entryGame36.grid(row=3, column=6)
 
         self.buttonFrame = Frame(self.updateFrame)
-        self.buttonFrame.grid(row=0, column=0)
+        self.buttonFrame.grid(row=0, column=1)
 
         self.buttonSave = Button(self.buttonFrame, width=15, text="Save")
         self.buttonSave.grid(row=0, column=0)
