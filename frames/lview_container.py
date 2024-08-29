@@ -16,8 +16,15 @@ class LongView(Toplevel):
         self.title("G-Numbers | Data Long Game")
         self.resizable(False, False)
 
+        self.titleFrame = LabelFrame(self)
+        self.titleFrame.grid(row=0, column=0, columnspan=3,
+                             padx=(15, 15), pady=(15, 0), sticky="we")
+
+        self.titleLabel = Label(self.titleFrame, text="Saved Numbers")
+        self.titleLabel.pack(pady=(5, 5))
+
         self.lblFrame1 = LabelFrame(self, width=215, height=143)
-        self.lblFrame1.grid(row=0, column=0, padx=(15, 0), pady=(15, 0))
+        self.lblFrame1.grid(row=1, column=0, padx=(15, 0), pady=(15, 0))
         self.lblFrame1.grid_propagate(False)
 
         self.radio1 = Radiobutton(self.lblFrame1, text="Week #1")
@@ -35,7 +42,7 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame2 = LabelFrame(self, width=215, height=143)
-        self.lblFrame2.grid(row=0, column=1, padx=(15, 0), pady=(15, 0))
+        self.lblFrame2.grid(row=1, column=1, padx=(15, 0), pady=(15, 0))
         self.lblFrame2.grid_propagate(False)
 
         self.radio2 = Radiobutton(self.lblFrame2, text="Week #2")
@@ -53,7 +60,7 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame3 = LabelFrame(self, width=215, height=143)
-        self.lblFrame3.grid(row=0, column=2, padx=(15, 15), pady=(15, 0))
+        self.lblFrame3.grid(row=1, column=2, padx=(15, 15), pady=(15, 0))
         self.lblFrame3.grid_propagate(False)
 
         self.radio3 = Radiobutton(self.lblFrame3, text="Week #3")
@@ -71,7 +78,7 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame4 = LabelFrame(self, width=215, height=143)
-        self.lblFrame4.grid(row=1, column=0, padx=(15, 0), pady=(15, 15))
+        self.lblFrame4.grid(row=2, column=0, padx=(15, 0), pady=(15, 15))
         self.lblFrame4.grid_propagate(False)
 
         self.radio4 = Radiobutton(self.lblFrame4, text="Week #4")
@@ -89,7 +96,7 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame5 = LabelFrame(self, width=215, height=143)
-        self.lblFrame5.grid(row=1, column=1, padx=(15, 0), pady=(15, 15))
+        self.lblFrame5.grid(row=2, column=1, padx=(15, 0), pady=(15, 15))
         self.lblFrame5.grid_propagate(False)
 
         self.radio5 = Radiobutton(self.lblFrame5, text="Week #5")
@@ -107,7 +114,7 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame6 = LabelFrame(self, width=215, height=143)
-        self.lblFrame6.grid(row=1, column=2, padx=(15, 15), pady=(15, 15))
+        self.lblFrame6.grid(row=2, column=2, padx=(15, 15), pady=(15, 15))
         self.lblFrame6.grid_propagate(False)
 
         self.radio6 = Radiobutton(self.lblFrame6, text="Week #6")
