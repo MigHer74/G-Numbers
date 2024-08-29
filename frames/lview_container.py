@@ -1,16 +1,20 @@
 from tkinter import Toplevel, Frame, LabelFrame, Entry, Label, Button
-from tkinter import Radiobutton
+from tkinter import Radiobutton, IntVar
 import general_tools as gt
 
 
 class LongView(Toplevel):
     def __init__(self, parent):
         super().__init__()
+
+        self.weekSelect = IntVar()
+        self.weekSelect.set(0)
+
         self.transient(parent)
         self.grab_set()
         self.loadData()
         self.longBuild()
-        # self.updateLabels()
+        self.focus()
 
     def longBuild(self):
         self.title("G-Numbers | Data Long Game")
@@ -27,7 +31,8 @@ class LongView(Toplevel):
         self.lblFrame1.grid(row=1, column=0, padx=(15, 0), pady=(15, 0))
         self.lblFrame1.grid_propagate(False)
 
-        self.radio1 = Radiobutton(self.lblFrame1, text="Week #1")
+        self.radio1 = Radiobutton(self.lblFrame1, text="Week #1", value=1,
+                                  variable=self.weekSelect)
         self.radio1.grid(row=0, column=0, pady=(10, 0))
 
         Label(self.lblFrame1, text=self.label11).grid(row=1, column=0,
@@ -45,7 +50,8 @@ class LongView(Toplevel):
         self.lblFrame2.grid(row=1, column=1, padx=(15, 0), pady=(15, 0))
         self.lblFrame2.grid_propagate(False)
 
-        self.radio2 = Radiobutton(self.lblFrame2, text="Week #2")
+        self.radio2 = Radiobutton(self.lblFrame2, text="Week #2", value=2,
+                                  variable=self.weekSelect)
         self.radio2.grid(row=0, column=0, pady=(10, 0))
 
         Label(self.lblFrame2, text=self.label21).grid(row=1, column=0,
@@ -63,7 +69,8 @@ class LongView(Toplevel):
         self.lblFrame3.grid(row=1, column=2, padx=(15, 15), pady=(15, 0))
         self.lblFrame3.grid_propagate(False)
 
-        self.radio3 = Radiobutton(self.lblFrame3, text="Week #3")
+        self.radio3 = Radiobutton(self.lblFrame3, text="Week #3", value=3,
+                                  variable=self.weekSelect)
         self.radio3.grid(row=0, column=0, pady=(10, 0))
 
         Label(self.lblFrame3, text=self.label31).grid(row=1, column=0,
@@ -78,10 +85,11 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame4 = LabelFrame(self, width=215, height=143)
-        self.lblFrame4.grid(row=2, column=0, padx=(15, 0), pady=(15, 15))
+        self.lblFrame4.grid(row=2, column=0, padx=(15, 0), pady=(15, 0))
         self.lblFrame4.grid_propagate(False)
 
-        self.radio4 = Radiobutton(self.lblFrame4, text="Week #4")
+        self.radio4 = Radiobutton(self.lblFrame4, text="Week #4", value=4,
+                                  variable=self.weekSelect)
         self.radio4.grid(row=0, column=0, pady=(10, 0))
 
         Label(self.lblFrame4, text=self.label41).grid(row=1, column=0,
@@ -96,10 +104,11 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame5 = LabelFrame(self, width=215, height=143)
-        self.lblFrame5.grid(row=2, column=1, padx=(15, 0), pady=(15, 15))
+        self.lblFrame5.grid(row=2, column=1, padx=(15, 0), pady=(15, 0))
         self.lblFrame5.grid_propagate(False)
 
-        self.radio5 = Radiobutton(self.lblFrame5, text="Week #5")
+        self.radio5 = Radiobutton(self.lblFrame5, text="Week #5", value=5,
+                                  variable=self.weekSelect)
         self.radio5.grid(row=0, column=0, pady=(10, 0))
 
         Label(self.lblFrame5, text=self.label51).grid(row=1, column=0,
@@ -114,10 +123,11 @@ class LongView(Toplevel):
                                                       sticky="w")
 
         self.lblFrame6 = LabelFrame(self, width=215, height=143)
-        self.lblFrame6.grid(row=2, column=2, padx=(15, 15), pady=(15, 15))
+        self.lblFrame6.grid(row=2, column=2, padx=(15, 15), pady=(15, 0))
         self.lblFrame6.grid_propagate(False)
 
-        self.radio6 = Radiobutton(self.lblFrame6, text="Week #6")
+        self.radio6 = Radiobutton(self.lblFrame6, text="Week #6", value=6,
+                                  variable=self.weekSelect)
         self.radio6.grid(row=0, column=0, pady=(10, 0))
 
         Label(self.lblFrame6, text=self.label61).grid(row=1, column=0,
@@ -130,6 +140,9 @@ class LongView(Toplevel):
                                                       padx=(10, 10),
                                                       pady=(10, 10),
                                                       sticky="w")
+
+        self.buttonUpdate = Button(self, width=15, text="Update")
+        self.buttonUpdate.grid(row=3, column=0, columnspan=3, pady=(20, 0))
 
     def loadData(self):
         (self.week1Game1, self.week1Game2,
