@@ -14,6 +14,7 @@ class LongView(Toplevel):
         self.grab_set()
         self.loadData()
         self.longBuild()
+        self.longCenter()
         self.focus()
 
     def longBuild(self):
@@ -153,7 +154,8 @@ class LongView(Toplevel):
         self.entryFrame.grid(row=0, column=0, padx=(15, 0), pady=(15, 15))
 
         self.labelWeek = Label(self.entryFrame, text="Week:")
-        self.labelWeek.grid(row=0, column=0, padx=(0, 15), pady=(0, 10), sticky="w")
+        self.labelWeek.grid(row=0, column=0, padx=(0, 15), pady=(0, 10),
+                            sticky="w")
 
         self.entryWeek = Entry(self.entryFrame, width=4, justify="center",
                                state="readonly")
@@ -295,3 +297,13 @@ class LongView(Toplevel):
         self.label61 = f"Game #1  --->  {self.week6Game1}"
         self.label62 = f"Game #2  --->  {self.week6Game2}"
         self.label63 = f"Game #3  --->  {self.week6Game3}"
+
+    def longCenter(self):
+        self.update()
+        w = self.winfo_width()
+        h = self.winfo_height()
+        ws = self.winfo_screenwidth()
+        hs = self.winfo_screenheight()
+        x = int(ws/2 - w/2)
+        y = int(hs/2 - h/2)
+        self.geometry(f"{w}x{h}+{x}+{y}")
