@@ -298,6 +298,78 @@ class LongView(Toplevel):
         self.label62 = f"Game #2  --->  {self.week6Game2}"
         self.label63 = f"Game #3  --->  {self.week6Game3}"
 
+    def eneableLongEntries(self):
+        self.entryWeek.config(state="normal")
+
+        self.entryGame11.config(state="normal")
+        self.entryGame12.config(state="normal")
+        self.entryGame13.config(state="normal")
+        self.entryGame14.config(state="normal")
+        self.entryGame15.config(state="normal")
+        self.entryGame16.config(state="normal")
+
+        self.entryGame21.config(state="normal")
+        self.entryGame22.config(state="normal")
+        self.entryGame23.config(state="normal")
+        self.entryGame24.config(state="normal")
+        self.entryGame25.config(state="normal")
+        self.entryGame26.config(state="normal")
+
+        self.entryGame31.config(state="normal")
+        self.entryGame32.config(state="normal")
+        self.entryGame33.config(state="normal")
+        self.entryGame34.config(state="normal")
+        self.entryGame35.config(state="normal")
+        self.entryGame36.config(state="normal")
+
+    def disableLongEntries(self):
+        self.entryWeek.config(state="readonly")
+
+        self.entryGame11.config(state="readonly")
+        self.entryGame12.config(state="readonly")
+        self.entryGame13.config(state="readonly")
+        self.entryGame14.config(state="readonly")
+        self.entryGame15.config(state="readonly")
+        self.entryGame16.config(state="readonly")
+
+        self.entryGame21.config(state="readonly")
+        self.entryGame22.config(state="readonly")
+        self.entryGame23.config(state="readonly")
+        self.entryGame24.config(state="readonly")
+        self.entryGame25.config(state="readonly")
+        self.entryGame26.config(state="readonly")
+
+        self.entryGame31.config(state="readonly")
+        self.entryGame32.config(state="readonly")
+        self.entryGame33.config(state="readonly")
+        self.entryGame34.config(state="readonly")
+        self.entryGame35.config(state="readonly")
+        self.entryGame36.config(state="readonly")
+
+    def cleanLongEntries(self):
+        self.entryWeek.delete(0, "end")
+
+        self.entryGame11.delete(0, "end")
+        self.entryGame12.delete(0, "end")
+        self.entryGame13.delete(0, "end")
+        self.entryGame14.delete(0, "end")
+        self.entryGame15.delete(0, "end")
+        self.entryGame16.delete(0, "end")
+
+        self.entryGame21.delete(0, "end")
+        self.entryGame22.delete(0, "end")
+        self.entryGame23.delete(0, "end")
+        self.entryGame24.delete(0, "end")
+        self.entryGame25.delete(0, "end")
+        self.entryGame26.delete(0, "end")
+
+        self.entryGame31.delete(0, "end")
+        self.entryGame32.delete(0, "end")
+        self.entryGame33.delete(0, "end")
+        self.entryGame34.delete(0, "end")
+        self.entryGame35.delete(0, "end")
+        self.entryGame36.delete(0, "end")
+
     def longCenter(self):
         self.update()
         w = self.winfo_width()
