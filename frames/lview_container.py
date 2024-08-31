@@ -38,16 +38,15 @@ class LongView(Toplevel):
                                   command=self.changeUpdateSelect)
         self.radio1.grid(row=0, column=0, pady=(10, 0))
 
-        Label(self.lblFrame1, text=self.label11).grid(row=1, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame1, text=self.label12).grid(row=2, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame1, text=self.label13).grid(row=3, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 10),
-                                                      sticky="w")
+        self.lblw1g1 = Label(self.lblFrame1, text=self.label11)
+        self.lblw1g1.grid(row=1, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw1g2 = Label(self.lblFrame1, text=self.label12)
+        self.lblw1g2.grid(row=2, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw1g3 = Label(self.lblFrame1, text=self.label13)
+        self.lblw1g3.grid(row=3, column=0, padx=(10, 10), pady=(10, 10),
+                          sticky="w")
 
         self.lblFrame2 = LabelFrame(self, width=215, height=143)
         self.lblFrame2.grid(row=1, column=1, padx=(15, 0), pady=(15, 0))
@@ -58,16 +57,15 @@ class LongView(Toplevel):
                                   command=self.changeUpdateSelect)
         self.radio2.grid(row=0, column=0, pady=(10, 0))
 
-        Label(self.lblFrame2, text=self.label21).grid(row=1, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame2, text=self.label22).grid(row=2, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame2, text=self.label23).grid(row=3, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 10),
-                                                      sticky="w")
+        self.lblw2g1 = Label(self.lblFrame2, text=self.label21)
+        self.lblw2g1.grid(row=1, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw2g2 = Label(self.lblFrame2, text=self.label22)
+        self.lblw2g2.grid(row=2, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw2g3 = Label(self.lblFrame2, text=self.label23)
+        self.lblw2g3.grid(row=3, column=0, padx=(10, 10), pady=(10, 10),
+                          sticky="w")
 
         self.lblFrame3 = LabelFrame(self, width=215, height=143)
         self.lblFrame3.grid(row=1, column=2, padx=(15, 15), pady=(15, 0))
@@ -78,16 +76,15 @@ class LongView(Toplevel):
                                   command=self.changeUpdateSelect)
         self.radio3.grid(row=0, column=0, pady=(10, 0))
 
-        Label(self.lblFrame3, text=self.label31).grid(row=1, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame3, text=self.label32).grid(row=2, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame3, text=self.label33).grid(row=3, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 10),
-                                                      sticky="w")
+        self.lblw3g1 = Label(self.lblFrame3, text=self.label31)
+        self.lblw3g1.grid(row=1, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw3g2 = Label(self.lblFrame3, text=self.label32)
+        self.lblw3g2.grid(row=2, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw3g3 = Label(self.lblFrame3, text=self.label33)
+        self.lblw3g3.grid(row=3, column=0, padx=(10, 10), pady=(10, 10),
+                          sticky="w")
 
         self.lblFrame4 = LabelFrame(self, width=215, height=143)
         self.lblFrame4.grid(row=2, column=0, padx=(15, 0), pady=(15, 0))
@@ -98,16 +95,15 @@ class LongView(Toplevel):
                                   command=self.changeUpdateSelect)
         self.radio4.grid(row=0, column=0, pady=(10, 0))
 
-        Label(self.lblFrame4, text=self.label41).grid(row=1, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame4, text=self.label42).grid(row=2, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame4, text=self.label43).grid(row=3, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 10),
-                                                      sticky="w")
+        self.lblw4g1 = Label(self.lblFrame4, text=self.label41)
+        self.lblw4g1.grid(row=1, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw4g2 = Label(self.lblFrame4, text=self.label42)
+        self.lblw4g2.grid(row=2, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw4g3 = Label(self.lblFrame4, text=self.label43)
+        self.lblw4g3.grid(row=3, column=0, padx=(10, 10), pady=(10, 10),
+                          sticky="w")
 
         self.lblFrame5 = LabelFrame(self, width=215, height=143)
         self.lblFrame5.grid(row=2, column=1, padx=(15, 0), pady=(15, 0))
@@ -118,16 +114,15 @@ class LongView(Toplevel):
                                   command=self.changeUpdateSelect)
         self.radio5.grid(row=0, column=0, pady=(10, 0))
 
-        Label(self.lblFrame5, text=self.label51).grid(row=1, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame5, text=self.label52).grid(row=2, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame5, text=self.label53).grid(row=3, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 10),
-                                                      sticky="w")
+        self.lblw5g1 = Label(self.lblFrame5, text=self.label51)
+        self.lblw5g1.grid(row=1, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw5g2 = Label(self.lblFrame5, text=self.label52)
+        self.lblw5g2.grid(row=2, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw5g3 = Label(self.lblFrame5, text=self.label53)
+        self.lblw5g3.grid(row=3, column=0, padx=(10, 10), pady=(10, 10),
+                          sticky="w")
 
         self.lblFrame6 = LabelFrame(self, width=215, height=143)
         self.lblFrame6.grid(row=2, column=2, padx=(15, 15), pady=(15, 0))
@@ -138,16 +133,15 @@ class LongView(Toplevel):
                                   command=self.changeUpdateSelect)
         self.radio6.grid(row=0, column=0, pady=(10, 0))
 
-        Label(self.lblFrame6, text=self.label61).grid(row=1, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame6, text=self.label62).grid(row=2, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 0), sticky="w")
-        Label(self.lblFrame6, text=self.label63).grid(row=3, column=0,
-                                                      padx=(10, 10),
-                                                      pady=(10, 10),
-                                                      sticky="w")
+        self.lblw6g1 = Label(self.lblFrame6, text=self.label61)
+        self.lblw6g1.grid(row=1, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw6g2 = Label(self.lblFrame6, text=self.label62)
+        self.lblw6g2.grid(row=2, column=0, padx=(10, 10), pady=(10, 0),
+                          sticky="w")
+        self.lblw6g3 = Label(self.lblFrame6, text=self.label63)
+        self.lblw6g3.grid(row=3, column=0, padx=(10, 10), pady=(10, 10),
+                          sticky="w")
 
         self.buttonUpdate = Button(self, width=15, text="Update",
                                    state="disabled", command=self.updateAction)
@@ -375,6 +369,7 @@ class LongView(Toplevel):
         dba.dbaUpdateOneWeek("L", self.weekUpdate, 3, datalong03)
 
         self.cancelAction()
+        self.updateMainPanel()
 
     def cancelAction(self):
         self.entryWeek.config(state="normal")
@@ -465,6 +460,49 @@ class LongView(Toplevel):
         self.entryGame34.delete(0, "end")
         self.entryGame35.delete(0, "end")
         self.entryGame36.delete(0, "end")
+
+    def updateMainPanel(self):
+        (self.updateW1g1, self.updateW1g2,
+         self.updateW1g3) = gt.load_weeks("long", "W1")
+
+        (self.updateW2g1, self.updateW2g2,
+         self.updateW2g3) = gt.load_weeks("long", "W2")
+
+        (self.updateW3g1, self.updateW3g2,
+         self.updateW3g3) = gt.load_weeks("long", "W3")
+
+        (self.updateW4g1, self.updateW4g2,
+         self.updateW4g3) = gt.load_weeks("long", "W4")
+
+        (self.updateW5g1, self.updateW5g2,
+         self.updateW5g3) = gt.load_weeks("long", "W5")
+
+        (self.updateW6g1, self.updateW6g2,
+         self.updateW6g3) = gt.load_weeks("long", "W6")
+
+        self.lblw1g1.config(text=f"Game #1  --->  {self.updateW1g1}")
+        self.lblw1g2.config(text=f"Game #2  --->  {self.updateW1g2}")
+        self.lblw1g3.config(text=f"Game #3  --->  {self.updateW1g3}")
+
+        self.lblw2g1.config(text=f"Game #1  --->  {self.updateW2g1}")
+        self.lblw2g2.config(text=f"Game #2  --->  {self.updateW2g2}")
+        self.lblw2g3.config(text=f"Game #3  --->  {self.updateW2g3}")
+
+        self.lblw3g1.config(text=f"Game #1  --->  {self.updateW3g1}")
+        self.lblw3g2.config(text=f"Game #2  --->  {self.updateW3g2}")
+        self.lblw3g3.config(text=f"Game #3  --->  {self.updateW3g3}")
+
+        self.lblw4g1.config(text=f"Game #1  --->  {self.updateW4g1}")
+        self.lblw4g2.config(text=f"Game #2  --->  {self.updateW4g2}")
+        self.lblw4g3.config(text=f"Game #3  --->  {self.updateW4g3}")
+
+        self.lblw5g1.config(text=f"Game #1  --->  {self.updateW5g1}")
+        self.lblw5g2.config(text=f"Game #2  --->  {self.updateW5g2}")
+        self.lblw5g3.config(text=f"Game #3  --->  {self.updateW5g3}")
+
+        self.lblw6g1.config(text=f"Game #1  --->  {self.updateW6g1}")
+        self.lblw6g2.config(text=f"Game #2  --->  {self.updateW6g2}")
+        self.lblw6g3.config(text=f"Game #3  --->  {self.updateW6g3}")
 
     def longCenter(self):
         self.update()
