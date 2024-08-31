@@ -1,6 +1,7 @@
 from tkinter import Toplevel, Frame, LabelFrame, Entry, Label, Button
 from tkinter import Radiobutton, IntVar
 import general_tools as gt
+import db_functions as dba
 
 
 class LongView(Toplevel):
@@ -316,7 +317,37 @@ class LongView(Toplevel):
         self.radio4.config(state="disabled")
         self.radio5.config(state="disabled")
         self.radio6.config(state="disabled")
-        print(self.weekSelect.get())
+        self.buttonUpdate.config(state="disabled")
+
+        self.eneableLongEntries()
+        self.cleanLongEntries()
+
+        self.weekUpdate = ("W" + str(self.weekSelect.get()))
+
+        datalong = dba.dbaRetrieveOrderValues("long", self.weekUpdate)
+
+        self.entryWeek.insert(0, self.weekSelect.get())
+
+        self.entryGame11.insert(0, datalong[0][3])
+        self.entryGame12.insert(0, datalong[0][4])
+        self.entryGame13.insert(0, datalong[0][5])
+        self.entryGame14.insert(0, datalong[0][6])
+        self.entryGame15.insert(0, datalong[0][7])
+        self.entryGame16.insert(0, datalong[0][8])
+
+        self.entryGame21.insert(0, datalong[1][3])
+        self.entryGame22.insert(0, datalong[1][4])
+        self.entryGame23.insert(0, datalong[1][5])
+        self.entryGame24.insert(0, datalong[1][6])
+        self.entryGame25.insert(0, datalong[1][7])
+        self.entryGame26.insert(0, datalong[1][8])
+
+        self.entryGame31.insert(0, datalong[2][3])
+        self.entryGame32.insert(0, datalong[2][4])
+        self.entryGame33.insert(0, datalong[2][5])
+        self.entryGame34.insert(0, datalong[2][6])
+        self.entryGame35.insert(0, datalong[2][7])
+        self.entryGame36.insert(0, datalong[2][8])
 
     def eneableLongEntries(self):
         self.entryWeek.config(state="normal")
