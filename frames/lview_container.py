@@ -256,7 +256,8 @@ class LongView(Toplevel):
         self.buttonSave = Button(self.buttonFrame, width=15, text="Save")
         self.buttonSave.grid(row=0, column=0, pady=(0, 15))
 
-        self.buttonCancel = Button(self.buttonFrame, width=15, text="Cancel")
+        self.buttonCancel = Button(self.buttonFrame, width=15, text="Cancel",
+                                   command=self.cancelAction)
         self.buttonCancel.grid(row=1, column=0, pady=(0, 15))
 
         self.buttonClose = Button(self.buttonFrame, width=15, text="Close",
@@ -348,6 +349,19 @@ class LongView(Toplevel):
         self.entryGame34.insert(0, datalong[2][6])
         self.entryGame35.insert(0, datalong[2][7])
         self.entryGame36.insert(0, datalong[2][8])
+
+    def cancelAction(self):
+        self.cleanLongEntries()
+        self.disableLongEntries()
+
+        self.weekSelect.set(0)
+
+        self.radio1.config(state="normal")
+        self.radio2.config(state="normal")
+        self.radio3.config(state="normal")
+        self.radio4.config(state="normal")
+        self.radio5.config(state="normal")
+        self.radio6.config(state="normal")
 
     def eneableLongEntries(self):
         self.entryWeek.config(state="normal")
