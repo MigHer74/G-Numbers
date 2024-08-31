@@ -352,24 +352,27 @@ class LongView(Toplevel):
         self.entryGame11.focus()
 
     def saveAction(self):
-        datalong01 = (self.entryGame11.get(), self.entryGame12.get(),
-                      self.entryGame13.get(), self.entryGame14.get(),
-                      self.entryGame15.get(), self.entryGame16.get())
+        self.datalong01 = (self.entryGame11.get(), self.entryGame12.get(),
+                           self.entryGame13.get(), self.entryGame14.get(),
+                           self.entryGame15.get(), self.entryGame16.get())
 
-        datalong02 = (self.entryGame21.get(), self.entryGame22.get(),
-                      self.entryGame23.get(), self.entryGame24.get(),
-                      self.entryGame25.get(), self.entryGame26.get())
+        self.datalong02 = (self.entryGame21.get(), self.entryGame22.get(),
+                           self.entryGame23.get(), self.entryGame24.get(),
+                           self.entryGame25.get(), self.entryGame26.get())
 
-        datalong03 = (self.entryGame31.get(), self.entryGame32.get(),
-                      self.entryGame33.get(), self.entryGame34.get(),
-                      self.entryGame35.get(), self.entryGame36.get())
+        self.datalong03 = (self.entryGame31.get(), self.entryGame32.get(),
+                           self.entryGame33.get(), self.entryGame34.get(),
+                           self.entryGame35.get(), self.entryGame36.get())
 
-        dba.dbaUpdateOneWeek("L", self.weekUpdate, 1, datalong01)
-        dba.dbaUpdateOneWeek("L", self.weekUpdate, 2, datalong02)
-        dba.dbaUpdateOneWeek("L", self.weekUpdate, 3, datalong03)
+        dba.dbaUpdateOneWeek("L", self.weekUpdate, 1, self.datalong01)
+        dba.dbaUpdateOneWeek("L", self.weekUpdate, 2, self.datalong02)
+        dba.dbaUpdateOneWeek("L", self.weekUpdate, 3, self.datalong03)
 
         self.cancelAction()
         self.updateMainPanel()
+
+        if self.weekUpdate == "W1":
+            self.updateLongMaster()
 
     def cancelAction(self):
         self.entryWeek.config(state="normal")
@@ -388,6 +391,12 @@ class LongView(Toplevel):
 
         self.buttonSave.config(state="disable")
         self.buttonCancel.config(state="disabled")
+
+    def updateLongMaster(self):
+        self.eneableLongMasterPanel()
+        self.cleanLongMasterPanel()
+        self.insertLongMasterPanel()
+        self.disableLongMasterPanel()
 
     def eneableLongEntries(self):
         self.entryWeek.config(state="normal")
@@ -503,6 +512,94 @@ class LongView(Toplevel):
         self.lblw6g1.config(text=f"Game #1  --->  {self.updateW6g1}")
         self.lblw6g2.config(text=f"Game #2  --->  {self.updateW6g2}")
         self.lblw6g3.config(text=f"Game #3  --->  {self.updateW6g3}")
+
+    def eneableLongMasterPanel(self):
+        self.master.longEntry11.config(state="normal")
+        self.master.longEntry12.config(state="normal")
+        self.master.longEntry13.config(state="normal")
+        self.master.longEntry14.config(state="normal")
+        self.master.longEntry15.config(state="normal")
+        self.master.longEntry16.config(state="normal")
+
+        self.master.longEntry21.config(state="normal")
+        self.master.longEntry22.config(state="normal")
+        self.master.longEntry23.config(state="normal")
+        self.master.longEntry24.config(state="normal")
+        self.master.longEntry25.config(state="normal")
+        self.master.longEntry26.config(state="normal")
+
+        self.master.longEntry31.config(state="normal")
+        self.master.longEntry32.config(state="normal")
+        self.master.longEntry33.config(state="normal")
+        self.master.longEntry34.config(state="normal")
+        self.master.longEntry35.config(state="normal")
+        self.master.longEntry36.config(state="normal")
+
+    def cleanLongMasterPanel(self):
+        self.master.longEntry11.delete(0, "end")
+        self.master.longEntry12.delete(0, "end")
+        self.master.longEntry13.delete(0, "end")
+        self.master.longEntry14.delete(0, "end")
+        self.master.longEntry15.delete(0, "end")
+        self.master.longEntry16.delete(0, "end")
+
+        self.master.longEntry21.delete(0, "end")
+        self.master.longEntry22.delete(0, "end")
+        self.master.longEntry23.delete(0, "end")
+        self.master.longEntry24.delete(0, "end")
+        self.master.longEntry25.delete(0, "end")
+        self.master.longEntry26.delete(0, "end")
+
+        self.master.longEntry31.delete(0, "end")
+        self.master.longEntry32.delete(0, "end")
+        self.master.longEntry33.delete(0, "end")
+        self.master.longEntry34.delete(0, "end")
+        self.master.longEntry35.delete(0, "end")
+        self.master.longEntry36.delete(0, "end")
+
+    def insertLongMasterPanel(self):
+        self.master.longEntry11.insert(0, self.datalong01[0])
+        self.master.longEntry12.insert(0, self.datalong01[1])
+        self.master.longEntry13.insert(0, self.datalong01[2])
+        self.master.longEntry14.insert(0, self.datalong01[3])
+        self.master.longEntry15.insert(0, self.datalong01[4])
+        self.master.longEntry16.insert(0, self.datalong01[5])
+
+        self.master.longEntry21.insert(0, self.datalong02[0])
+        self.master.longEntry22.insert(0, self.datalong02[1])
+        self.master.longEntry23.insert(0, self.datalong02[2])
+        self.master.longEntry24.insert(0, self.datalong02[3])
+        self.master.longEntry25.insert(0, self.datalong02[4])
+        self.master.longEntry26.insert(0, self.datalong02[5])
+
+        self.master.longEntry31.insert(0, self.datalong03[0])
+        self.master.longEntry32.insert(0, self.datalong03[1])
+        self.master.longEntry33.insert(0, self.datalong03[2])
+        self.master.longEntry34.insert(0, self.datalong03[3])
+        self.master.longEntry35.insert(0, self.datalong03[4])
+        self.master.longEntry36.insert(0, self.datalong03[5])
+
+    def disableLongMasterPanel(self):
+        self.master.longEntry11.config(state="readonly")
+        self.master.longEntry12.config(state="readonly")
+        self.master.longEntry13.config(state="readonly")
+        self.master.longEntry14.config(state="readonly")
+        self.master.longEntry15.config(state="readonly")
+        self.master.longEntry16.config(state="readonly")
+
+        self.master.longEntry21.config(state="readonly")
+        self.master.longEntry22.config(state="readonly")
+        self.master.longEntry23.config(state="readonly")
+        self.master.longEntry24.config(state="readonly")
+        self.master.longEntry25.config(state="readonly")
+        self.master.longEntry26.config(state="readonly")
+
+        self.master.longEntry31.config(state="readonly")
+        self.master.longEntry32.config(state="readonly")
+        self.master.longEntry33.config(state="readonly")
+        self.master.longEntry34.config(state="readonly")
+        self.master.longEntry35.config(state="readonly")
+        self.master.longEntry36.config(state="readonly")
 
     def longCenter(self):
         self.update()
