@@ -254,7 +254,7 @@ class LongView(Toplevel):
         self.buttonFrame.grid(row=0, column=1, padx=(15, 20), pady=(15, 15))
 
         self.buttonSave = Button(self.buttonFrame, width=15, text="Save",
-                                 state="disabled")
+                                 state="disabled", command=self.saveAction)
         self.buttonSave.grid(row=0, column=0, pady=(0, 15))
 
         self.buttonCancel = Button(self.buttonFrame, width=15, text="Cancel",
@@ -356,6 +356,25 @@ class LongView(Toplevel):
 
         self.entryWeek.config(state="disabled")
         self.entryGame11.focus()
+
+    def saveAction(self):
+        datalong01 = (self.entryGame11.get(), self.entryGame12.get(),
+                      self.entryGame13.get(), self.entryGame14.get(),
+                      self.entryGame15.get(), self.entryGame16.get())
+
+        datalong02 = (self.entryGame21.get(), self.entryGame22.get(),
+                      self.entryGame23.get(), self.entryGame24.get(),
+                      self.entryGame25.get(), self.entryGame26.get())
+
+        datalong03 = (self.entryGame31.get(), self.entryGame32.get(),
+                      self.entryGame33.get(), self.entryGame34.get(),
+                      self.entryGame35.get(), self.entryGame36.get())
+
+        dba.dbaUpdateOneWeek("L", self.weekUpdate, 1, datalong01)
+        dba.dbaUpdateOneWeek("L", self.weekUpdate, 2, datalong02)
+        dba.dbaUpdateOneWeek("L", self.weekUpdate, 3, datalong03)
+
+        self.cancelAction()
 
     def cancelAction(self):
         self.entryWeek.config(state="normal")
