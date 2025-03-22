@@ -1,7 +1,6 @@
 /db
 /.vscode/
-/__pycache__/
-frames/__pycache__/
+__pycache__/
 *.bak
 test.py
 *.db
