@@ -25,3 +25,13 @@ def load_weeks(loadtype, loadweek):
     temp_game3 = ", ".join(map(str, temp_game3))
 
     return temp_game1, temp_game2, temp_game3
+
+
+def center_window(window, window_width, window_height):
+    display_width = window.winfo_screenwidth()
+    display_height = window.winfo_screenheight()
+
+    x = int((display_width / 2) - (window_width / 2))
+    y = int((display_height / 2) - (window_height / 2))
+
+    return window.geometry(f"{window_width}x{window_height}+{x}+{y}")
