@@ -3,6 +3,7 @@ from frames import game_container as gc
 from frames import regame_container as rgc
 from frames import sview_container as svc
 from frames import lview_container as lvc
+from general_tools import center_window
 import db_functions as dba
 
 
@@ -11,12 +12,11 @@ class Gnumber(Tk):
         super().__init__()
         self.build()
         self.menu()
-        self.centerFrame()
         self.loadAllData()
 
     def build(self):
         self.title("G-Numbers | Main Menu")
-        self.geometry("600x400")
+        center_window(self, 600, 400)
         self.resizable(False, False)
 
         self.titlePanel = LabelFrame(self)
@@ -267,13 +267,3 @@ class Gnumber(Tk):
         self.longEntry34.config(state="readonly")
         self.longEntry35.config(state="readonly")
         self.longEntry36.config(state="readonly")
-
-    def centerFrame(self):
-        self.update()
-        w = self.winfo_width()
-        h = self.winfo_height()
-        ws = self.winfo_screenwidth()
-        hs = self.winfo_screenheight()
-        x = int(ws/2 - w/2)
-        y = int(hs/2 - h/2)
-        self.geometry(f"{w}x{h}+{x}+{y}")
