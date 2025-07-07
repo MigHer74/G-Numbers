@@ -15,7 +15,6 @@ class GPanel(Toplevel):
         self.gameType.set(None)
 
         self.build()
-        self.centerFrame()
         self.focus()
 
     def build(self):
