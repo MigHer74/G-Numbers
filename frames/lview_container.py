@@ -15,11 +15,11 @@ class LongView(Toplevel):
         self.grab_set()
         self.loadData()
         self.longBuild()
-        self.longCenter()
         self.focus()
 
     def longBuild(self):
         self.title("G-Numbers | Data Long Game")
+        gt.center_window(self, 705, 620)
         self.resizable(False, False)
 
         self.titleFrame = LabelFrame(self)
@@ -600,13 +600,3 @@ class LongView(Toplevel):
         self.master.longEntry34.config(state="readonly")
         self.master.longEntry35.config(state="readonly")
         self.master.longEntry36.config(state="readonly")
-
-    def longCenter(self):
-        self.update()
-        w = self.winfo_width()
-        h = self.winfo_height()
-        ws = self.winfo_screenwidth()
-        hs = self.winfo_screenheight()
-        x = int(ws/2 - w/2)
-        y = int(hs/2 - h/2)
-        self.geometry(f"{w}x{h}+{x}+{y}")
