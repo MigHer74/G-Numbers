@@ -32,6 +32,9 @@ def gEngine(gameType):
                 rowResult4.append(str(number))
 
             choice = 0
+
+            rowFinal = final_values(rowResult1, rowResult2, rowResult3,
+                                    rowResult4)
     else:
         for number in range(1, 57):
             choice = allValues.count(number)
