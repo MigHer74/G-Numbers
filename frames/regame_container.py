@@ -18,7 +18,7 @@ class RGPanel(Toplevel):
 
     def build(self):
         self.title("G-Numbers | Replay Game")
-        center_window(self, 479, 231)
+        center_window(self, 479, 271)
         self.resizable(False, False)
 
         self.panelOne = Frame(self)
@@ -52,7 +52,7 @@ class RGPanel(Toplevel):
         self.panelThree = Frame(self)
         self.panelThree.grid(row=0, column=1)
 
-        self.panelResults = LabelFrame(self.panelThree, width=310, height=150,
+        self.panelResults = LabelFrame(self.panelThree, width=310, height=180,
                                        text=" Numbers Repetition ",
                                        labelanchor="n")
         self.panelResults.grid(row=0, column=0, padx=(15, 15), pady=(15, 0))
@@ -63,19 +63,21 @@ class RGPanel(Toplevel):
         self.replayLong.config(state="disabled")
         self.newButton.config(state="normal")
 
-        (listResult1, listResult2,
-         listResult3, listResult4) = gen.gEngine(self.replayType.get())
+        (listResult1, listResult2, listResult3,
+         listResult4, listFinal) = gen.gEngine(self.replayType.get())
 
         if self.replayType.get() == "short":
             result1 = f"5+ -> {", ".join(listResult1)}"
             result2 = f"4 --> {", ".join(listResult2)}"
             result3 = f"3 --> {", ".join(listResult3)}"
             result4 = f"2 --> {", ".join(listResult4)}"
+            resultf = f"Final: {", ".join(listFinal)}"
         else:
-            result1 = f"6+ -> {", ".join(listResult1)}"
-            result2 = f"5 --> {", ".join(listResult2)}"
-            result3 = f"4 --> {", ".join(listResult3)}"
-            result4 = f"3 --> {", ".join(listResult4)}"
+            result1 = f"6+--> {", ".join(listResult1)}"
+            result2 = f"5 ---> {", ".join(listResult2)}"
+            result3 = f"4 ---> {", ".join(listResult3)}"
+            result4 = f"3 ---> {", ".join(listResult4)}"
+            resultf = f"Final: {", ".join(listFinal)}"
 
         self.labelRow01 = Label(self.panelResults, text=result1)
         self.labelRow01.grid(row=0, column=0, padx=10, pady=(5, 0),
@@ -90,8 +92,12 @@ class RGPanel(Toplevel):
                              sticky="w")
 
         self.labelRow04 = Label(self.panelResults, text=result4)
-        self.labelRow04.grid(row=3, column=0, padx=10, pady=(10, 10),
+        self.labelRow04.grid(row=3, column=0, padx=10, pady=(10, 0),
                              sticky="w")
+
+        self.labelRowF = Label(self.panelResults, text=resultf)
+        self.labelRowF.grid(row=4, column=0, padx=10, pady=(10, 10),
+                            sticky="w")
 
     def newGame(self):
         self.replayType.set(None)
@@ -104,3 +110,4 @@ class RGPanel(Toplevel):
         self.labelRow02.destroy()
         self.labelRow03.destroy()
         self.labelRow04.destroy()
+        self.labelRowF.destroy()
