@@ -194,18 +194,20 @@ class GPanel(Toplevel):
 
     def buildResults(self):
         (listResult1, listResult2,
-         listResult3, listResult4) = gen.gEngine(self.gameType.get())
+         listResult3, listResult4,
+         listFinal) = gen.gEngine(self.gameType.get())
 
         if self.gameType.get() == "short":
-            result1 = f"5+ -> {", ".join(listResult1)}"
-            result2 = f"4 --> {", ".join(listResult2)}"
-            result3 = f"3 --> {", ".join(listResult3)}"
-            result4 = f"2 --> {", ".join(listResult4)}"
+            result1 = f"5+ --> {", ".join(listResult1)}"
+            result2 = f"4 ---> {", ".join(listResult2)}"
+            result3 = f"3 ---> {", ".join(listResult3)}"
+            result4 = f"2 ---> {", ".join(listResult4)}"
         else:
-            result1 = f"6+ -> {", ".join(listResult1)}"
-            result2 = f"5 --> {", ".join(listResult2)}"
-            result3 = f"4 --> {", ".join(listResult3)}"
-            result4 = f"3 --> {", ".join(listResult4)}"
+            result1 = f"6+ --> {", ".join(listResult1)}"
+            result2 = f"5 ---> {", ".join(listResult2)}"
+            result3 = f"4 ---> {", ".join(listResult3)}"
+            result4 = f"3 ---> {", ".join(listResult4)}"
+            resultf = f"Final: {", ".join(listFinal)}"
 
         self.labelRow01 = Label(self.panelResults, text=result1)
         self.labelRow01.grid(row=0, column=0, padx=10, pady=(5, 0),
@@ -220,7 +222,11 @@ class GPanel(Toplevel):
                              sticky="w")
 
         self.labelRow04 = Label(self.panelResults, text=result4)
-        self.labelRow04.grid(row=3, column=0, padx=10, pady=(10, 10),
+        self.labelRow04.grid(row=3, column=0, padx=10, pady=(10, 0),
+                             sticky="w")
+
+        self.labelRowFi = Label(self.panelResults, text=resultf)
+        self.labelRowFi.grid(row=4, column=0, padx=10, pady=(10, 10),
                              sticky="w")
 
     def gameAction(self):
@@ -298,6 +304,7 @@ class GPanel(Toplevel):
         self.labelRow02.destroy()
         self.labelRow03.destroy()
         self.labelRow04.destroy()
+        self.labelRowFi.destroy()
         self.buttonNew.config(state="disabled")
         self.enableEntries()
         self.gameReset()
