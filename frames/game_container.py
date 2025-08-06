@@ -19,7 +19,7 @@ class GPanel(Toplevel):
 
     def build(self):
         self.title("G-Numbers | Game Panel")
-        center_window(self, 480, 432)
+        center_window(self, 480, 462)
         self.resizable(False, False)
 
         self.panelOne = Frame(self)
@@ -186,7 +186,7 @@ class GPanel(Toplevel):
                                 state="disabled", command=self.gameNew)
         self.buttonNew.pack()
 
-        self.panelResults = LabelFrame(self.panelThree, width=310, height=150,
+        self.panelResults = LabelFrame(self.panelThree, width=310, height=180,
                                        text=" Numbers Repetition ",
                                        labelanchor="n")
         self.panelResults.grid(row=0, column=1, padx=(25, 0))
