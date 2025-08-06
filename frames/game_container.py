@@ -202,6 +202,7 @@ class GPanel(Toplevel):
             result2 = f"4 ---> {", ".join(listResult2)}"
             result3 = f"3 ---> {", ".join(listResult3)}"
             result4 = f"2 ---> {", ".join(listResult4)}"
+            resultf = f"Final: {", ".join(listFinal)}"
         else:
             result1 = f"6+ --> {", ".join(listResult1)}"
             result2 = f"5 ---> {", ".join(listResult2)}"
